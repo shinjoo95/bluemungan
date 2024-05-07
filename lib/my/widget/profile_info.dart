@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 
 class ProfileInfo extends StatelessWidget {
-  // final _myCtrl = Get.find<MyPageController>();
+  const ProfileInfo({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -31,7 +30,7 @@ class ProfileInfo extends StatelessWidget {
                 ),
               ),
             ],
-          )
+          ),
         ],
       ),
     );
