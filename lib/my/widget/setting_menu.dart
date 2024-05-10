@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 
 /// 마이공구 하단 메뉴
 class SettingMenu extends StatelessWidget {

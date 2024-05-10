@@ -1,11 +1,12 @@
-import 'package:bluemungan/my/screen/mypage_screen.dart';
+import 'package:bluemungan/core/routes/app_pages.dart';
+import 'package:bluemungan/main/controller/main_controller.dart';
+import 'package:bluemungan/main/screen/main_screen.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get_navigation/src/root/get_material_app.dart';
+import 'package:get/get.dart';
 
 void main() async {
+  Get.put(MainController());
   WidgetsFlutterBinding.ensureInitialized();
-  // await Firebase.initializeApp().then((value) => Get.put(AuthController()));
-
   runApp(const MyApp());
 }
 
@@ -14,9 +15,10 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const GetMaterialApp(
+    return GetMaterialApp(
       debugShowCheckedModeBanner: false,
-      home: MypageScreen(),
+      home: const MainScreen(),
+      getPages: AppPages.routes,
     );
   }
 }
