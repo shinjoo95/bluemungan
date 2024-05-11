@@ -1,15 +1,21 @@
-import 'package:flutter/material.dart';
+import 'package:bluemungan/main/screen/main_tab_screen.dart';
+import 'package:bluemungan/my/screen/mypage_screen.dart';
 import 'package:get/get.dart';
 import 'package:get/get_state_manager/get_state_manager.dart';
 
 class MainController extends GetxController
     with GetSingleTickerProviderStateMixin {
-  TabController? tabCtrl; // 바텀바 탭 컨트롤러
+  // 선택된 바텀 바 인덱스
+  int selectedBottomIndex = 0;
+  // 바텀 바 탭 화면
+  final List tabScreensList = const [
+    MainTabScreen(),
+    MypageScreen(),
+  ];
 
   @override
   void onInit() {
     print('shin >>>>> main_controller init');
-    tabCtrl = TabController(length: 2, vsync: this);
     super.onInit();
   }
 
@@ -17,5 +23,9 @@ class MainController extends GetxController
   void dispose() {
     super.dispose();
     print('shin >>>>> main_controller dispose');
+  }
+
+  void bottomTapped(int index) {
+    selectedBottomIndex = index;
   }
 }
