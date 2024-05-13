@@ -1,3 +1,5 @@
+import 'package:bluemungan/main/widget/rolling_banner.dart';
+import 'package:bluemungan/main/widget/top_banner.dart';
 import 'package:flutter/material.dart';
 
 class MainTabScreen extends StatelessWidget {
@@ -5,8 +7,25 @@ class MainTabScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
-      child: Container(),
+    return Scaffold(
+      backgroundColor: Colors.white,
+      appBar: AppBar(
+        backgroundColor: Colors.white,
+        leadingWidth: 100,
+        leading: Image.asset(
+          'assets/blue_logo.png',
+          color: Colors.blue[900],
+        ),
+      ),
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            SizedBox(height: 20),
+            TopBanner(),
+            RollingBanner(),
+          ],
+        ),
+      ),
     );
   }
 }
