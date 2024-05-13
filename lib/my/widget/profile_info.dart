@@ -1,3 +1,4 @@
+import 'package:bluemungan/core/routes/data/values.dart';
 import 'package:flutter/material.dart';
 
 class ProfileInfo extends StatelessWidget {
@@ -21,13 +22,13 @@ class ProfileInfo extends StatelessWidget {
           const SizedBox(width: 10),
           const Column(
             children: [
-              Text(
-                '사용자 이름',
-                style: TextStyle(
-                  fontSize: 17,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
+              // Text(
+              //   Values.instance.userName(),
+              //   style: TextStyle(
+              //     fontSize: 17,
+              //     fontWeight: FontWeight.bold,
+              //   ),
+              // ),
             ],
           ),
         ],

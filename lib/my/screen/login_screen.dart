@@ -1,4 +1,7 @@
+import 'package:bluemungan/main/screen/main_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:kakao_flutter_sdk/kakao_flutter_sdk.dart';
 
 class LoginScreen extends StatelessWidget {
   const LoginScreen({super.key});
@@ -19,23 +22,83 @@ class LoginScreen extends StatelessWidget {
             ),
             const SizedBox(height: 50),
             _loginBotton(
-                asset: 'assets/kakao_logo.png',
-                title: '카카오로 시작하기',
-                textColor: Colors.black,
-                buttonColor: const Color(0xffffde00),
-                onTap: () {}),
+              asset: 'assets/kakao_logo.png',
+              title: '카카오로 시작하기',
+              textColor: Colors.black,
+              buttonColor: const Color(0xffffde00),
+              onTap: () async {
+                if (await isKakaoTalkInstalled()) {
+                  try {
+                    await UserApi.instance.loginWithKakaoTalk();
+                    print('카카오톡으로 로그인 성공111');
+                    Navigator.of(context).pushAndRemoveUntil(
+                      MaterialPageRoute(
+                          builder: (context) => const MainScreen()),
+                      (route) => false,
+                    );
+                  } catch (error) {
+                    print('카카오톡으로 로그인 실패 $error');
+                    // 사용자가 카카오톡 설치 후 디바이스 권한 요청 화면에서 로그인을 취소한 경우,
+                    // 의도적인 로그인 취소로 보고 카카오계정으로 로그인 시도 없이 로그인 취소로 처리 (예: 뒤로 가기)
+                    if (error is PlatformException &&
+                        error.code == 'CANCELED') {
+                      return;
+                    }
+                    // 카카오톡에 연결된 카카오계정이 없는 경우, 카카오계정으로 로그인
+                    try {
+                      await UserApi.instance.loginWithKakaoAccount();
+                      print('카카오계정으로 로그인 성공222');
+                      Navigator.of(context).pushAndRemoveUntil(
+                        MaterialPageRoute(
+                            builder: (context) => const MainScreen()),
+                        (route) => false,
+                      );
+                    } catch (error) {
+                      print('카카오계정으로 로그인 실패 $error');
+                    }
+                  }
+                } else {
+                  try {
+                    await UserApi.instance.loginWithKakaoAccount();
+                    print('카카오계정으로 로그인 성공333');
+                    try {
+                      User user = await UserApi.instance.me();
+                      print(
+                          'shin >>>> ${user.kakaoAccount?.profile?.profileImageUrl}');
+
+                      print('사용자 정보 요청 성공'
+                          '\n회원번호: ${user.id}'
+                          '\n닉네임: ${user.kakaoAccount?.profile?.nickname}'
+                          '\n이메일: ${user.kakaoAccount?.email}');
+                    } catch (error) {
+                      print('사용자 정보 요청 실패 $error');
+                    }
+
+                    Navigator.of(context).pushAndRemoveUntil(
+                      MaterialPageRoute(
+                          builder: (context) => const MainScreen()),
+                      (route) => false,
+                    );
+                  } catch (error) {
+                    print('카카오계정으로 로그인 실패 $error');
+                  }
+                }
+              },
+            ),
             _loginBotton(
-                asset: 'assets/naver_logo.png',
-                title: '네이버로 시작하기',
-                textColor: Colors.white,
-                buttonColor: const Color(0xff01c73c),
-                onTap: () {}),
+              asset: 'assets/naver_logo.png',
+              title: '네이버로 시작하기',
+              textColor: Colors.white,
+              buttonColor: const Color(0xff01c73c),
+              onTap: () {},
+            ),
             _loginBotton(
-                asset: 'assets/google_logo.png',
-                title: 'Google 시작하기',
-                textColor: Colors.black,
-                buttonColor: Colors.grey[300],
-                onTap: () {}),
+              asset: 'assets/google_logo.png',
+              title: 'Google 시작하기',
+              textColor: Colors.black,
+              buttonColor: Colors.grey[300],
+              onTap: () {},
+            ),
           ],
         ),
       ),

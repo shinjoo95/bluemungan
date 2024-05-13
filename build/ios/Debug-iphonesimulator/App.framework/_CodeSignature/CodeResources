@@ -10,11 +10,11 @@
 		</data>
 		<key>flutter_assets/AssetManifest.bin</key>
 		<data>
-		30Aon6TDtPOyer/xp/xyhpaEclM=
+		nbotfxDVdgNqdT/sTMZuh408i4E=
 		</data>
 		<key>flutter_assets/AssetManifest.json</key>
 		<data>
-		jTLbAojb5OlJr3ojMVOM398Uk2g=
+		ccDcnTf0cpbUC2pvFT06bdVBwro=
 		</data>
 		<key>flutter_assets/FontManifest.json</key>
 		<data>
@@ -22,7 +22,7 @@
 		</data>
 		<key>flutter_assets/NOTICES.Z</key>
 		<data>
-		Bja8ADAr56/sxUqGBJ5Q1vvXYuk=
+		XpqyI9FbEAXSdecuqYJ+iqE8jlA=
 		</data>
 		<key>flutter_assets/assets/arrow_right.png</key>
 		<data>
@@ -35,6 +35,18 @@
 		<key>flutter_assets/assets/blue_logo_1.png</key>
 		<data>
 		phse7WK88czQZCzNrgjHjCUD/8g=
+		</data>
+		<key>flutter_assets/assets/google_logo.png</key>
+		<data>
+		kglgymsk43hsT+DPrkoqjqnjmYA=
+		</data>
+		<key>flutter_assets/assets/kakao_logo.png</key>
+		<data>
+		HoJVZZ/Ah1bXweRoaMUeIDYxyQI=
+		</data>
+		<key>flutter_assets/assets/naver_logo.png</key>
+		<data>
+		X+7igB9ERrjpvcHwevkifr3Xs8U=
 		</data>
 		<key>flutter_assets/assets/setting.png</key>
 		<data>
@@ -50,7 +62,7 @@
 		</data>
 		<key>flutter_assets/kernel_blob.bin</key>
 		<data>
-		JpzUkzTIR+/93/thXNkgI0DMaCY=
+		V0gFmjqAVDXWrVuJbr437WlH4X4=
 		</data>
 		<key>flutter_assets/packages/cupertino_icons/assets/CupertinoIcons.ttf</key>
 		<data>
@@ -71,14 +83,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			MaDqE/kA2NSFbScUy2FcxZDgpz9gBCOtQYd3KUPlHH4=
+			eBrsPPaw1e6wffMPNG3p7/8WvBO6NlNPvS9vhq6I5bI=
 			</data>
 		</dict>
 		<key>flutter_assets/AssetManifest.json</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			u7ZFBEFw4MgXUpv+wBBj2MXmf80IH0REYXTOugLQ3BE=
+			yO+lo7uwsUOu57mN9Y7jdVfTDhbnVLjCHxfUMWL8WmA=
 			</data>
 		</dict>
 		<key>flutter_assets/FontManifest.json</key>
@@ -92,7 +104,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			hiz2u8hZYaaCesw2MmF7WrbxJhx3m8+SMSHugLsfegM=
+			3K4bICA4Rr/YWiGSDXmZYtoPZ7JxjZkHVH9eDCbiiWw=
 			</data>
 		</dict>
 		<key>flutter_assets/assets/arrow_right.png</key>
@@ -114,6 +126,27 @@
 			<key>hash2</key>
 			<data>
 			V5/g2L9qvHF6/Wk87FH6TJPzUIVx7TFGciEMcOqHx0s=
+			</data>
+		</dict>
+		<key>flutter_assets/assets/google_logo.png</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			UQGGXmxrjTlE8F0AbM/Vol+1SMHvlTEOlVKYqH7SCLo=
+			</data>
+		</dict>
+		<key>flutter_assets/assets/kakao_logo.png</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			h0493kW3c94ys0U5ANQMFHMg6evFi2jxCKpYR1Szgp0=
+			</data>
+		</dict>
+		<key>flutter_assets/assets/naver_logo.png</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			QQojr8Z4UMi3byoc6bkvwWAgZL2tCNg0v+vyVum1IDs=
 			</data>
 		</dict>
 		<key>flutter_assets/assets/setting.png</key>
@@ -141,7 +174,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			PBB5ipz02t17L2GnE0+W2OWwS8OteQCdV3hiwX4suow=
+			NxcDeK6GVVsbEEJGQJqlmecajMIMCYffexy/nEbtKS8=
 			</data>
 		</dict>
 		<key>flutter_assets/packages/cupertino_icons/assets/CupertinoIcons.ttf</key>
