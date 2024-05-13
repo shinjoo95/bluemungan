@@ -7,7 +7,6 @@ class ProfileInfo extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       padding: const EdgeInsets.fromLTRB(16, 10, 16, 10),
-      color: Colors.amber,
       height: 70,
       child: Row(
         children: [

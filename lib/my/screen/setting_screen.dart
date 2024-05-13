@@ -1,3 +1,4 @@
+import 'package:bluemungan/my/screen/login_screen.dart';
 import 'package:bluemungan/my/widget/setting_menu.dart';
 import 'package:flutter/material.dart';
 
@@ -21,7 +22,14 @@ class SettingScreen extends StatelessWidget {
           SettingMenu(
             icon: 'setting',
             title: '계정설정',
-            onTap: () {},
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => const LoginScreen(),
+                ),
+              );
+            },
           ),
           SettingMenu(
             icon: 'setting',

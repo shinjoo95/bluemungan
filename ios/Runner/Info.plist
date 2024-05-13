@@ -44,6 +44,11 @@
 			<string>UIInterfaceOrientationPortraitUpsideDown</string>
 			<string>UIInterfaceOrientationLandscapeLeft</string>
 			<string>UIInterfaceOrientationLandscapeRight</string>
+      		<string>kakao${native_app_key_here}</string>
+      		<string>kakaokompassauth</string>
+      		<string>storykompassauth</string>
+      		<string>kakaolink</string>         
+      		<string>kakaotalk-5.9.7</string>
 		</array>
 		<key>UIStatusBarHidden</key>
 		<true/>

@@ -10,38 +10,36 @@ class MypageScreen extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
-        title: Container(
-          color: Colors.cyan,
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              const Text(
-                '마이페이지',
-                style: TextStyle(
-                  fontSize: 20,
-                  fontWeight: FontWeight.bold,
+        backgroundColor: Colors.transparent,
+        title: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            const Text(
+              '마이페이지',
+              style: TextStyle(
+                fontSize: 20,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+            InkWell(
+              child: Container(
+                margin: const EdgeInsets.only(bottom: 5),
+                child: Image.asset(
+                  'assets/setting.png',
+                  width: 35,
+                  height: 35,
                 ),
               ),
-              InkWell(
-                child: Container(
-                  margin: const EdgeInsets.only(bottom: 5),
-                  child: Image.asset(
-                    'assets/setting.png',
-                    width: 35,
-                    height: 35,
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const SettingScreen(),
                   ),
-                ),
-                onTap: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => const SettingScreen(),
-                    ),
-                  );
-                },
-              ),
-            ],
-          ),
+                );
+              },
+            ),
+          ],
         ),
       ),
       body: const SingleChildScrollView(
