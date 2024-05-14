@@ -1,4 +1,3 @@
-import 'package:bluemungan/core/routes/data/values.dart';
 import 'package:flutter/material.dart';
 
 class ProfileInfo extends StatelessWidget {

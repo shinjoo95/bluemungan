@@ -17,11 +17,11 @@ class MainTabScreen extends StatelessWidget {
           color: Colors.blue[900],
         ),
       ),
-      body: SingleChildScrollView(
+      body: const SingleChildScrollView(
         child: Column(
           children: [
             SizedBox(height: 20),
-            TopBanner(),
+            // TopBanner(),
             RollingBanner(),
           ],
         ),
