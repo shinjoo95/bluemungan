@@ -5,6 +5,22 @@ class ParticipatedScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Colors.transparent,
+        leadingWidth: 100,
+        leading: Image.asset(
+          'assets/blue_logo.png',
+          color: Colors.blue[900],
+        ),
+        title: const Text(
+          '참여한 활동',
+          style: TextStyle(
+            fontSize: 21,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+      ),
+    );
   }
 }
