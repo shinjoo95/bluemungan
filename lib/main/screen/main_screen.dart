@@ -21,12 +21,16 @@ class _MainScreenState extends State<MainScreen> {
             highlightColor: Colors.transparent,
           ),
           child: BottomNavigationBar(
+            type: BottomNavigationBarType.fixed,
             showSelectedLabels: false,
             showUnselectedLabels: false,
             selectedItemColor: Colors.blue,
-            backgroundColor: Colors.white,
             items: const [
               BottomNavigationBarItem(icon: Icon(Icons.home), label: '메인'),
+              BottomNavigationBarItem(
+                  icon: Icon(Icons.assignment), label: '게시판'),
+              BottomNavigationBarItem(
+                  icon: Icon(Icons.history), label: '참여한활동'),
               BottomNavigationBarItem(icon: Icon(Icons.people), label: '마이'),
             ],
             currentIndex: _ctrl.selectedBottomIndex,

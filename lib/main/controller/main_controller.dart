@@ -11,6 +11,8 @@ class MainController extends GetxController
   final List tabScreensList = const [
     MainTabScreen(),
     MypageScreen(),
+    MypageScreen(),
+    MypageScreen(),
   ];
 
   @override
