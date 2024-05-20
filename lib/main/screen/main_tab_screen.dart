@@ -1,5 +1,6 @@
+import 'package:bluemungan/main/widget/icon_widget.dart';
 import 'package:bluemungan/main/widget/rolling_banner.dart';
-import 'package:bluemungan/main/widget/top_banner.dart';
+import 'package:bluemungan/main/widget/top_ment.dart';
 import 'package:flutter/material.dart';
 
 class MainTabScreen extends StatelessWidget {
@@ -17,14 +18,15 @@ class MainTabScreen extends StatelessWidget {
           color: Colors.blue[900],
         ),
       ),
-      body: const SingleChildScrollView(
-        child: Column(
-          children: [
-            SizedBox(height: 20),
-            // TopBanner(),
-            RollingBanner(),
-          ],
-        ),
+      body: const Column(
+        children: [
+          SizedBox(height: 15),
+          TopMent(),
+          SizedBox(height: 25),
+          RollingBanner(),
+          SizedBox(height: 20),
+          IconWigdet(),
+        ],
       ),
     );
   }

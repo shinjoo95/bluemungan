@@ -44,7 +44,7 @@ class RollingBanner extends StatelessWidget {
         );
       }).toList(),
       options: CarouselOptions(
-        height: 110,
+        height: 400,
         enableInfiniteScroll: false,
         viewportFraction: 0.925,
       ),
