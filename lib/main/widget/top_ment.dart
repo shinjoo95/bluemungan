@@ -7,36 +7,55 @@ class TopMent extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(5),
-      ),
+      height: 65,
       width: Get.width,
-      height: 80,
       margin: const EdgeInsets.symmetric(horizontal: 20),
       child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Container(
-            alignment: Alignment.centerLeft,
-            height: 40,
-            child: Text(
-              '환경 서포터즈 푸른문간',
-              style: TextStyle(
-                color: Colors.blue[600],
-                fontSize: 25,
-                fontFamily: 'semiBold',
-              ),
+          RichText(
+            text: const TextSpan(
+              children: [
+                TextSpan(
+                  text: '푸른문간',
+                  style: TextStyle(
+                    color: Colors.blue,
+                    fontSize: 25,
+                    fontFamily: 'bold',
+                  ),
+                ),
+                TextSpan(
+                  text: ' 환경 서포터즈',
+                  style: TextStyle(
+                    color: Colors.black,
+                    fontSize: 20,
+                    fontFamily: 'semiBold',
+                  ),
+                ),
+              ],
             ),
           ),
-          Container(
-            alignment: Alignment.centerLeft,
-            height: 40,
-            child: Text(
-              '매달 3쨋주 토요일 정기 모임',
-              style: TextStyle(
-                color: Colors.blue[600],
-                fontSize: 35,
-                fontFamily: 'bold',
-              ),
+          const SizedBox(height: 5),
+          RichText(
+            text: const TextSpan(
+              children: [
+                TextSpan(
+                  text: '매달 3번째 토요일',
+                  style: TextStyle(
+                    color: Colors.blue,
+                    fontSize: 17,
+                    fontFamily: 'bold',
+                  ),
+                ),
+                TextSpan(
+                  text: ' 정기 플로깅 ☘️',
+                  style: TextStyle(
+                    color: Colors.black,
+                    fontSize: 15,
+                    fontFamily: 'semiBold',
+                  ),
+                ),
+              ],
             ),
           ),
         ],

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class IconWigdet extends StatelessWidget {
   const IconWigdet({super.key});
@@ -10,40 +11,64 @@ class IconWigdet extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          _Icons('푸른문간'),
-          _Icons('청년문간'),
-          _Icons('문간소식'),
-          _Icons('홈페이지'),
+          bottomIcons(
+            '푸른문간',
+            'assets/instagram_logo.png',
+            'https://www.instagram.com/bluemungan?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==',
+          ),
+          bottomIcons(
+            '문간소식',
+            'assets/instagram_logo.png',
+            'https://www.instagram.com/bluemungan?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==',
+          ),
+          bottomIcons(
+            '청년문간',
+            'assets/youtube_logo.png',
+            'https://www.youtube.com/channel/UCkdAbucoJ5MFkbwPj8dsXwQ',
+          ),
+          bottomIcons(
+            '홈페이지',
+            'assets/mungan_logo.png',
+            'https://youthmungan.com/',
+          ),
         ],
       ),
     );
   }
 }
 
-Widget _Icons(
+Widget bottomIcons(
   String iconText,
+  String iconImage,
+  String iconUrl,
 ) {
-  return Column(
-    children: [
-      Container(
-        decoration: BoxDecoration(
-          color: Colors.white,
-          borderRadius: BorderRadius.circular(5),
+  return GestureDetector(
+    child: Column(
+      children: [
+        Container(
+          decoration: BoxDecoration(
+            color: Colors.white,
+            borderRadius: BorderRadius.circular(5),
+          ),
+          width: 50,
+          height: 50,
+          child: Image.asset(iconImage),
         ),
-        width: 50,
-        height: 50,
-        child: Image.asset('assets/instagram_logo.png'),
-      ),
-      const SizedBox(height: 10),
-      Text(
-        iconText,
-        style: TextStyle(
-          fontSize: 16,
-          letterSpacing: 1,
-          fontWeight: FontWeight.w600,
-          color: Colors.blue[700],
-        ),
-      )
-    ],
+        const SizedBox(height: 5),
+        Text(
+          iconText,
+          style: const TextStyle(
+            fontSize: 16,
+            letterSpacing: 1,
+            fontFamily: 'semiBold',
+          ),
+        )
+      ],
+    ),
+    onTap: () {
+      launchUrl(
+        Uri.parse(iconUrl),
+      );
+    },
   );
 }

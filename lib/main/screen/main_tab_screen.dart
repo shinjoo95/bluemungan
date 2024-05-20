@@ -11,8 +11,8 @@ class MainTabScreen extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
-        backgroundColor: Colors.white,
-        leadingWidth: 100,
+        backgroundColor: Colors.transparent,
+        leadingWidth: 80,
         leading: Image.asset(
           'assets/blue_logo.png',
           color: Colors.blue[900],
@@ -22,7 +22,7 @@ class MainTabScreen extends StatelessWidget {
         children: [
           SizedBox(height: 15),
           TopMent(),
-          SizedBox(height: 25),
+          SizedBox(height: 15),
           RollingBanner(),
           SizedBox(height: 20),
           IconWigdet(),
