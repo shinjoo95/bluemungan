@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "454016135198",
+    "project_id": "bluemungan",
+    "storage_bucket": "bluemungan.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:454016135198:android:60837d0a983b685042be0f",
+        "android_client_info": {
+          "package_name": "com.shinjoo.bluemungan"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAkEDgCWS8vxh4_hzDjzplPxpsptqpaKoA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
