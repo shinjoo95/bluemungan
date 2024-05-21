@@ -33,19 +33,11 @@ class SettingMenu extends StatelessWidget {
               children: [
                 Row(
                   children: [
-                    //메뉴 아이콘
-                    // Image.asset(
-                    //   'assets/$icon.png',
-                    //   width: 30,
-                    //   height: 30,
-                    // ),
                     //메뉴 타이틀
                     Text(
                       title,
-                      style: const TextStyle(
-                        fontSize: 15,
-                        fontWeight: FontWeight.w500,
-                      ),
+                      style:
+                          const TextStyle(fontSize: 15, fontFamily: 'semiBold'),
                     ),
                   ],
                 ),
@@ -62,7 +54,7 @@ class SettingMenu extends StatelessWidget {
         Visibility(
           visible: !isLast,
           child: Container(
-            color: Colors.grey[400],
+            color: Colors.grey[300],
             height: 1,
           ),
         )
