@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class PostScreen extends StatelessWidget {
-  const PostScreen({super.key});
+class FeedScreen extends StatelessWidget {
+  const FeedScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -14,7 +14,7 @@ class PostScreen extends StatelessWidget {
           color: Colors.blue[900],
         ),
         title: const Text(
-          '활동 신청하기',
+          '활동 피드',
           style: TextStyle(
             fontSize: 21,
             fontFamily: 'bold',

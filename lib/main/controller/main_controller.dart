@@ -1,7 +1,7 @@
 import 'package:bluemungan/main/screen/main_tab_screen.dart';
 import 'package:bluemungan/my/screen/mypage_screen.dart';
-import 'package:bluemungan/participated/screen/participated_screen.dart';
-import 'package:bluemungan/post/screen/post_screen.dart';
+import 'package:bluemungan/feed/screen/feed_screen.dart';
+import 'package:bluemungan/schedule/screen/schedule_screen.dart';
 import 'package:get/get.dart';
 import 'package:get/get_state_manager/get_state_manager.dart';
 
@@ -12,8 +12,8 @@ class MainController extends GetxController
   // 바텀 바 탭 화면
   final List tabScreensList = const [
     MainTabScreen(),
-    PostScreen(),
-    ParticipatedScreen(),
+    ScheduleScreen(),
+    FeedScreen(),
     MypageScreen(),
   ];
 
