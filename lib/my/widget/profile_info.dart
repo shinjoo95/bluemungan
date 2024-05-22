@@ -6,28 +6,33 @@ class ProfileInfo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.fromLTRB(16, 10, 16, 10),
       height: 70,
       child: Row(
         children: [
-          ClipRRect(
-            borderRadius: BorderRadius.circular(9),
-            child: Container(
-              color: Colors.cyan,
-              width: 50,
-              height: 50,
-            ),
+          Stack(
+            children: [
+              ClipRRect(
+                borderRadius: BorderRadius.circular(10),
+                child: Container(
+                  color: Colors.cyan,
+                  width: 60,
+                  height: 60,
+                ),
+              ),
+            ],
           ),
-          const SizedBox(width: 10),
+          const SizedBox(width: 15),
           const Column(
             children: [
-              // Text(
-              //   Values.instance.userName(),
-              //   style: TextStyle(
-              //     fontSize: 17,
-              //     fontWeight: FontWeight.bold,
-              //   ),
-              // ),
+              SizedBox(height: 3),
+              Text(
+                '신주용',
+                style: TextStyle(
+                  color: Colors.black,
+                  fontSize: 22,
+                  fontFamily: 'semiBold',
+                ),
+              ),
             ],
           ),
         ],

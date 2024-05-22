@@ -1,6 +1,8 @@
 import 'package:bluemungan/my/screen/setting_screen.dart';
+import 'package:bluemungan/my/widget/participated_info.dart';
 import 'package:bluemungan/my/widget/profile_info.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 
 class MypageScreen extends StatelessWidget {
   const MypageScreen({super.key});
@@ -20,7 +22,7 @@ class MypageScreen extends StatelessWidget {
         title: const Text(
           '마이페이지',
           style: TextStyle(
-            fontSize: 20,
+            fontSize: 21,
             fontFamily: 'bold',
           ),
         ),
@@ -46,14 +48,20 @@ class MypageScreen extends StatelessWidget {
           const SizedBox(width: 15)
         ],
       ),
-      body: const SingleChildScrollView(
-        physics: ClampingScrollPhysics(),
-        child: Column(
-          children: [
-            //프로필 설정
-            ProfileInfo(),
-            //내가 쓴 게시물
-          ],
+      body: SingleChildScrollView(
+        physics: const ClampingScrollPhysics(),
+        child: Container(
+          margin: const EdgeInsets.symmetric(horizontal: 16),
+          child: const Column(
+            children: [
+              SizedBox(height: 10),
+              //프로필 설정
+              ProfileInfo(),
+              //내가 참여한 활동
+              SizedBox(height: 20),
+              ParticipatedInfo(),
+            ],
+          ),
         ),
       ),
     );
