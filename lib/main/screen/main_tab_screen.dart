@@ -22,9 +22,9 @@ class MainTabScreen extends StatelessWidget {
         children: [
           SizedBox(height: 15),
           TopMent(),
-          SizedBox(height: 15),
+          SizedBox(height: 10),
           RollingBanner(),
-          SizedBox(height: 20),
+          SizedBox(height: 25),
           IconWigdet(),
         ],
       ),
