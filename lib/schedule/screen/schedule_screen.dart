@@ -74,7 +74,13 @@ class ScheduleScreen extends StatelessWidget {
   Widget _planScheduleView() {
     return ListView.builder(
       itemBuilder: (context, index) {
-        return const ListItem();
+        return ListItem(
+          title: '도심 플로깅 할 사람!',
+          imageUrl: 'assets/city_img.png',
+          mainTime: '6/22 토',
+          subTime: '6월 22일 토요일 13시',
+          location: '홍대입구역',
+        );
       },
       itemCount: 10,
     );
@@ -84,7 +90,13 @@ class ScheduleScreen extends StatelessWidget {
   Widget _completedScheduleView() {
     return ListView.builder(
       itemBuilder: (context, index) {
-        return const ListItem();
+        return ListItem(
+          title: '등산 플로깅 갈 사람',
+          imageUrl: 'assets/mount_img.png',
+          mainTime: '4/22 토',
+          subTime: '4월 22일 토요일 13시',
+          location: '북한산',
+        );
       },
       itemCount: 5,
     );
