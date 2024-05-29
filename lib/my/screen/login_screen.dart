@@ -1,12 +1,30 @@
-import 'package:bluemungan/main/screen/main_screen.dart';
+import 'dart:convert';
+import 'dart:math';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_naver_login/flutter_naver_login.dart';
 import 'package:kakao_flutter_sdk/kakao_flutter_sdk.dart';
+import 'package:uni_links2/uni_links.dart';
+import 'package:url_launcher/url_launcher.dart';
 
-class LoginScreen extends StatelessWidget {
+class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
+
+  @override
+  State<LoginScreen> createState() => _LoginScreenState();
+}
+
+class _LoginScreenState extends State<LoginScreen> {
+  @override
+  void initState() {
+    super.initState();
+    initUniLinks();
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -107,16 +125,49 @@ Widget _loginBotton({
 }
 
 Future<void> loginWithNaver() async {
-  NaverLoginResult res = await FlutterNaverLogin.logIn();
-  final NaverLoginResult result = await FlutterNaverLogin.logIn();
-  NaverAccessToken access = await FlutterNaverLogin.currentAccessToken;
-  // setState(() {
-  var accesToken = res.accessToken;
-  var tokenType = access.tokenType;
-  // });
-  print('shin >>>> naverlogin ');
-  print('shin >>>> $accesToken ');
-  print('shin >>>> $tokenType ');
+  String clienId = 'nLj1FxzmzRq2a4vXDJRm';
+  String redirectUri =
+      'https://asia-northeast3-bluemungan.cloudfunctions.net/naverLoginCallback';
+  String state =
+      base64Url.encode(List<int>.generate(16, (_) => Random().nextInt(255)));
+  Uri url = Uri.parse(
+      'https://nid.naver.com/oauth2.0/authorize?response_type=code&client_id=$clienId&state=$state&redirect_uri=$redirectUri');
+
+  print('네이버 로그인 열기 & 클라우드 호출');
+  await launchUrl(url);
+}
+
+Future<void> initUniLinks() async {
+  final initialLink = await getInitialLink();
+  print('shin >>>> 1111');
+  if (initialLink != null) {
+    _handleDeepLink(initialLink);
+
+    linkStream.listen((String? link) {
+      _handleDeepLink(link!);
+    }, onError: (err, stacktrace) {
+      print('딥링크 에러 $err\n$stacktrace');
+    });
+  }
+}
+
+Future<void> _handleDeepLink(String link) async {
+  print('딥링크 열기 $link');
+  final Uri uri = Uri.parse(link);
+  print('shin >>>> 222');
+
+  if (uri.authority == 'login-callback') {
+    String? firebaseToken = uri.queryParameters['firebaseToken'];
+    String? name = uri.queryParameters['name'];
+    String? profileImage = uri.queryParameters['profileImage'];
+
+    await FirebaseAuth.instance
+        .signInWithCustomToken(firebaseToken!)
+        .then((value) => null)
+        .onError((error, stackTrace) {
+      print("error $error");
+    }); // move to main
+  }
 }
 
 Future<void> loginWithKakao() async {

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_naver_login/flutter_naver_login.dart';
 
 class ProfileInfo extends StatelessWidget {
   const ProfileInfo({super.key});
@@ -25,13 +26,17 @@ class ProfileInfo extends StatelessWidget {
           const Column(
             children: [
               SizedBox(height: 3),
-              Text(
-                '신주용',
-                style: TextStyle(
-                  color: Colors.black,
-                  fontSize: 22,
-                  fontFamily: 'semiBold',
-                ),
+              Row(
+                children: [
+                  Text(
+                    '신주용',
+                    style: TextStyle(
+                      color: Colors.black,
+                      fontSize: 22,
+                      fontFamily: 'semiBold',
+                    ),
+                  ),
+                ],
               ),
             ],
           ),
@@ -39,4 +44,8 @@ class ProfileInfo extends StatelessWidget {
       ),
     );
   }
+  // 네이버 로그아웃 테스트
+  // Future<void> naverlogout() async {
+  //   FlutterNaverLogin.logOut().then((value) => print('shin >>>> logout'));
+  // }
 }
