@@ -30,6 +30,8 @@
 			<key>CFBundleURLSchemes</key>
 			<array>
 				<string>kakao3a7d2ab10030b990c134c3425f4071e2</string>
+				<string>bluemunganurlscheme</string>
+
 			</array>
 		</dict>
 	</array>
@@ -37,10 +39,20 @@
 	<string>$(FLUTTER_BUILD_NUMBER)</string>
 	<key>LSApplicationQueriesSchemes</key>
 	<array>
+		<string>naversearchapp</string>
+		<string>naversearchthirdlogin</string>
 		<string>kakaokompassauth</string>
 		<string>kakaolink</string>
 		<string>kakaoplus</string>
 	</array>
+	<key>naverServiceAppUrlScheme</key>
+	<string>bluemunganurlscheme</string>
+	<key>naverConsumerKey</key>
+	<string>nLj1FxzmzRq2a4vXDJRm</string>
+	<key>naverConsumerSecret</key>
+	<string>cm5TfcXTsy</string>
+	<key>naverServiceAppName</key>
+	<string>bluemungan</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>UIApplicationSupportsIndirectInputEvents</key>
@@ -67,5 +79,27 @@
 	</array>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
+	<key>NSAppTransportSecurity</key>
+	<dict>
+		<key>NSAllowsArbitraryLoads</key>
+		<true/>
+		<key>NSExceptionDomains</key>
+		<dict>
+			<key>naver.com</key>
+			<dict>
+				<key>NSExceptionRequiresForwardSecrecy</key>
+				<false/>
+				<key>NSIncludesSubdomains</key>
+				<true/>
+			</dict>
+			<key>naver.net</key>
+			<dict>
+				<key>NSExceptionRequiresForwardSecrecy</key>
+				<false/>
+				<key>NSIncludesSubdomains</key>
+				<true/>
+			</dict>
+		</dict>
+	</dict>
 </dict>
 </plist>

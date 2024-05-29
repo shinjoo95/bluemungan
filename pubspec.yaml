@@ -43,6 +43,7 @@ dependencies:
   flutter_native_splash: ^2.4.0 # splash 화면
   flutter_lints: ^3.0.0
   kakao_flutter_sdk: ^1.9.1+2 # 카카오 
+  flutter_naver_login: ^1.8.0 # 네이버 로그인
 
 dev_dependencies:
   flutter_test:

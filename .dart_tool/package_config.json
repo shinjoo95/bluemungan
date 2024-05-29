@@ -194,6 +194,12 @@
       "languageVersion": "3.0"
     },
     {
+      "name": "flutter_naver_login",
+      "rootUri": "file:///Users/admin/.pub-cache/hosted/pub.dev/flutter_naver_login-1.8.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
       "name": "flutter_test",
       "rootUri": "file:///Users/admin/Desktop/development/flutter/packages/flutter_test",
       "packageUri": "lib/",
@@ -602,7 +608,7 @@
       "languageVersion": "3.3"
     }
   ],
-  "generated": "2024-05-22T03:53:35.569346Z",
+  "generated": "2024-05-29T05:57:57.223067Z",
   "generator": "pub",
   "generatorVersion": "3.3.1"
 }

@@ -2,6 +2,7 @@ import 'package:bluemungan/main/screen/main_screen.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_naver_login/flutter_naver_login.dart';
 import 'package:kakao_flutter_sdk/kakao_flutter_sdk.dart';
 
 class LoginScreen extends StatelessWidget {
@@ -28,7 +29,7 @@ class LoginScreen extends StatelessWidget {
               textColor: Colors.black,
               buttonColor: const Color(0xffffde00),
               onTap: () async {
-                await loginWithKakao();
+                loginWithKakao();
               },
             ),
             _loginBotton(
@@ -36,7 +37,9 @@ class LoginScreen extends StatelessWidget {
               title: '네이버로 시작하기',
               textColor: Colors.white,
               buttonColor: const Color(0xff01c73c),
-              onTap: () {},
+              onTap: () {
+                loginWithNaver();
+              },
             ),
             _loginBotton(
               asset: 'assets/google_logo.png',
@@ -101,6 +104,19 @@ Widget _loginBotton({
       const SizedBox(height: 15),
     ],
   );
+}
+
+Future<void> loginWithNaver() async {
+  NaverLoginResult res = await FlutterNaverLogin.logIn();
+  final NaverLoginResult result = await FlutterNaverLogin.logIn();
+  NaverAccessToken access = await FlutterNaverLogin.currentAccessToken;
+  // setState(() {
+  var accesToken = res.accessToken;
+  var tokenType = access.tokenType;
+  // });
+  print('shin >>>> naverlogin ');
+  print('shin >>>> $accesToken ');
+  print('shin >>>> $tokenType ');
 }
 
 Future<void> loginWithKakao() async {
