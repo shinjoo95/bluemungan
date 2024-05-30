@@ -14,6 +14,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "454016135198-4oh3rojlqe2913tlkd9vhmut99n709pd.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.shinjoo.bluemungan",
+            "certificate_hash": "fc8e0e535022ee240240aae3ec1a2c2aef816887"
+          }
+        },
+        {
           "client_id": "454016135198-tfbsbuemm2uc0dvdteh6argl4fi0doo0.apps.googleusercontent.com",
           "client_type": 3
         }

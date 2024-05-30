@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_naver_login/flutter_naver_login.dart';
+// import 'package:flutter_naver_login/flutter_naver_login.dart';
 
 class ProfileInfo extends StatelessWidget {
   const ProfileInfo({super.key});

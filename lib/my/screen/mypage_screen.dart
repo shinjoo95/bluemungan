@@ -2,7 +2,6 @@ import 'package:bluemungan/my/screen/setting_screen.dart';
 import 'package:bluemungan/my/widget/participated_info.dart';
 import 'package:bluemungan/my/widget/profile_info.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 
 class MypageScreen extends StatelessWidget {
   const MypageScreen({super.key});

@@ -1,25 +1,25 @@
-import 'dart:convert';
-import 'dart:math';
+// import 'dart:convert';
+// import 'dart:math';
 
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:kakao_flutter_sdk/kakao_flutter_sdk.dart';
-import 'package:uni_links2/uni_links.dart';
-import 'package:url_launcher/url_launcher.dart';
+// import 'package:uni_links2/uni_links.dart';
+// import 'package:url_launcher/url_launcher.dart';
 
 class LoginController extends GetxController {
-  @override
-  void onInit() {
-    super.onInit();
-    // initUniLinks();
-  }
+  // @override
+  // void onInit() {
+  //   super.onInit();
+  //   // initUniLinks();
+  // }
 
-  @override
-  void dispose() {
-    super.dispose();
-  }
+  // @override
+  // void dispose() {
+  //   super.dispose();
+  // }
 
   /// 네이버 로그인
   // Future<void> loginWithNaver() async {

@@ -27,7 +27,7 @@ class LoginScreen extends StatelessWidget {
               title: '카카오로 시작하기',
               textColor: Colors.black,
               buttonColor: const Color(0xffffde00),
-              onTap: () async {
+              onTap: () {
                 ctrl.loginWithKakao();
               },
             ),
