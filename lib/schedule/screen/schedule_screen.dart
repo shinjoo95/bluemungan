@@ -1,4 +1,5 @@
 import 'package:bluemungan/schedule/controller/schedule_controller.dart';
+import 'package:bluemungan/schedule/screen/schedule_write_screen.dart';
 import 'package:bluemungan/schedule/widget/list_item.dart';
 import 'package:bluemungan/schedule/widget/plogging_banner.dart';
 import 'package:flutter/material.dart';
@@ -26,6 +27,21 @@ class ScheduleScreen extends StatelessWidget {
             fontFamily: 'bold',
           ),
         ),
+      ),
+      floatingActionButton: FloatingActionButton(
+        backgroundColor: Colors.blue[300],
+        child: const Icon(
+          Icons.edit,
+          color: Colors.white,
+        ),
+        onPressed: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => const ScheduleWriteScreen(),
+            ),
+          );
+        },
       ),
       body: Column(
         children: [
