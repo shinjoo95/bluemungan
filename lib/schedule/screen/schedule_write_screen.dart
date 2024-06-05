@@ -1,10 +1,7 @@
 // import 'package:bluemungan/schedule/controller/schedule_controller.dart';
-import 'package:bluemungan/schedule/screen/schedule_screen.dart';
-import 'package:flutter/cupertino.dart';
+import 'package:board_datetime_picker/board_datetime_picker.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
-import 'package:syncfusion_flutter_datepicker/datepicker.dart';
 // import 'package:get/get.dart';
 
 class ScheduleWriteScreen extends StatefulWidget {
@@ -15,6 +12,9 @@ class ScheduleWriteScreen extends StatefulWidget {
 }
 
 class _ScheduleWriteScreenState extends State<ScheduleWriteScreen> {
+  final controller = BoardDateTimeController();
+
+  DateTime date = DateTime.now();
   @override
   Widget build(BuildContext context) {
     // final ctrl = Get.put(ScheduleController());
@@ -131,52 +131,58 @@ class _ScheduleWriteScreenState extends State<ScheduleWriteScreen> {
                   ),
                 ),
                 const SizedBox(height: 10),
-                Container(
-                  color: Colors.amber,
-                  height: 40,
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      GestureDetector(
-                        onTap: () {
-                          dateButton();
-                        },
-                        child: Container(
-                          alignment: Alignment.center,
-                          height: 40,
-                          width: MediaQuery.of(context).size.width / 2.5,
-                          color: Colors.cyan,
-                          child: const Text(
-                            '시간 선택',
-                            style: TextStyle(
-                              color: Colors.white,
-                              fontFamily: 'bold',
-                              fontSize: 15,
-                              letterSpacing: 1.5,
-                            ),
-                          ),
-                        ),
+
+                /// 활동 날짜 설정
+                GestureDetector(
+                  child: Container(
+                    alignment: Alignment.center,
+                    height: 45,
+                    width: Get.width,
+                    decoration: BoxDecoration(
+                      border: Border.all(
+                        color: Colors.cyan,
+                        width: 2,
                       ),
-                      GestureDetector(
-                        onTap: () {},
-                        child: Container(
-                          alignment: Alignment.center,
-                          height: 40,
-                          width: MediaQuery.of(context).size.width / 2.5,
-                          color: Colors.cyan,
-                          child: const Text(
-                            '시간 선택',
-                            style: TextStyle(
-                              color: Colors.white,
-                              fontFamily: 'bold',
-                              fontSize: 15,
-                              letterSpacing: 1.5,
-                            ),
-                          ),
-                        ),
+                      borderRadius: BorderRadius.circular(5),
+                      color: Colors.white,
+                    ),
+                    child: Text(
+                      BoardDateFormat('yyyy년 MM월 dd일  h시').format(date),
+                      style: const TextStyle(
+                        fontFamily: 'bold',
+                        fontSize: 20,
+                        color: Colors.cyan,
                       ),
-                    ],
+                    ),
                   ),
+                  onTap: () async {
+                    final result = await showBoardDateTimePicker(
+                      minimumDate: DateTime.now(),
+                      maximumDate: DateTime(2026),
+                      useSafeArea: true,
+                      options: BoardDateTimeOptions(
+                        boardTitleTextStyle: const TextStyle(
+                          fontFamily: 'bold',
+                          fontSize: 20,
+                        ),
+                        backgroundColor: Colors.white,
+                        foregroundColor: Colors.grey[200],
+                        startDayOfWeek: DateTime.sunday,
+                        pickerFormat: PickerFormat.ymd,
+                        showDateButton: false,
+                        customOptions: BoardPickerCustomOptions(
+                          minutes: [00, 30],
+                        ),
+                        boardTitle: '년도 / 날짜 / 시간 선택하세요.',
+                      ),
+                      context: context,
+                      pickerType: DateTimePickerType.datetime,
+                      showDragHandle: false,
+                    );
+                    if (result != null) {
+                      setState(() => date = result);
+                    }
+                  },
                 ),
 
                 boundary(),
@@ -314,9 +320,5 @@ class _ScheduleWriteScreenState extends State<ScheduleWriteScreen> {
       height: 1,
       color: Colors.grey[300],
     );
-  }
-
-  Widget dateButton() {
-    return SfDateRangePicker();
   }
 }

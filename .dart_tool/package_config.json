@@ -38,6 +38,12 @@
       "languageVersion": "2.18"
     },
     {
+      "name": "board_datetime_picker",
+      "rootUri": "file:///Users/admin/.pub-cache/hosted/pub.dev/board_datetime_picker-1.6.6",
+      "packageUri": "lib/",
+      "languageVersion": "2.19"
+    },
+    {
       "name": "boolean_selector",
       "rootUri": "file:///Users/admin/.pub-cache/hosted/pub.dev/boolean_selector-2.1.1",
       "packageUri": "lib/",
@@ -512,18 +518,6 @@
       "languageVersion": "2.18"
     },
     {
-      "name": "syncfusion_flutter_core",
-      "rootUri": "file:///Users/admin/.pub-cache/hosted/pub.dev/syncfusion_flutter_core-25.2.7",
-      "packageUri": "lib/",
-      "languageVersion": "2.17"
-    },
-    {
-      "name": "syncfusion_flutter_datepicker",
-      "rootUri": "file:///Users/admin/.pub-cache/hosted/pub.dev/syncfusion_flutter_datepicker-25.2.7",
-      "packageUri": "lib/",
-      "languageVersion": "2.17"
-    },
-    {
       "name": "term_glyph",
       "rootUri": "file:///Users/admin/.pub-cache/hosted/pub.dev/term_glyph-1.2.1",
       "packageUri": "lib/",
@@ -686,7 +680,7 @@
       "languageVersion": "3.3"
     }
   ],
-  "generated": "2024-06-05T07:50:08.026087Z",
+  "generated": "2024-06-05T10:24:44.844294Z",
   "generator": "pub",
   "generatorVersion": "3.4.1",
   "flutterRoot": "file:///Users/admin/fvm/versions/3.22.1",

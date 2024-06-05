@@ -22,6 +22,10 @@ async
 2.18
 file:///Users/admin/.pub-cache/hosted/pub.dev/async-2.11.0/
 file:///Users/admin/.pub-cache/hosted/pub.dev/async-2.11.0/lib/
+board_datetime_picker
+2.19
+file:///Users/admin/.pub-cache/hosted/pub.dev/board_datetime_picker-1.6.6/
+file:///Users/admin/.pub-cache/hosted/pub.dev/board_datetime_picker-1.6.6/lib/
 boolean_selector
 2.17
 file:///Users/admin/.pub-cache/hosted/pub.dev/boolean_selector-2.1.1/
@@ -322,14 +326,6 @@ string_scanner
 2.18
 file:///Users/admin/.pub-cache/hosted/pub.dev/string_scanner-1.2.0/
 file:///Users/admin/.pub-cache/hosted/pub.dev/string_scanner-1.2.0/lib/
-syncfusion_flutter_core
-2.17
-file:///Users/admin/.pub-cache/hosted/pub.dev/syncfusion_flutter_core-25.2.7/
-file:///Users/admin/.pub-cache/hosted/pub.dev/syncfusion_flutter_core-25.2.7/lib/
-syncfusion_flutter_datepicker
-2.17
-file:///Users/admin/.pub-cache/hosted/pub.dev/syncfusion_flutter_datepicker-25.2.7/
-file:///Users/admin/.pub-cache/hosted/pub.dev/syncfusion_flutter_datepicker-25.2.7/lib/
 term_glyph
 2.12
 file:///Users/admin/.pub-cache/hosted/pub.dev/term_glyph-1.2.1/
