@@ -37,7 +37,6 @@ doc/api/
 ### Flutter ###
 # Flutter/Dart/Pub related
 **/doc/api/
-.fvm/flutter_sdk
 .pub-cache/
 .pub/
 coverage/
@@ -102,7 +101,6 @@ lib/generated_plugin_registrant.dart
 # Icon must end with two \r
 Icon
 
-
 # Thumbnails
 ._*
 
@@ -146,3 +144,6 @@ Temporary Items
 .ionide
 
 # End of https://www.toptal.com/developers/gitignore/api/flutter,dart,visualstudiocode,macos
+
+# FVM Version Cache
+.fvm/
