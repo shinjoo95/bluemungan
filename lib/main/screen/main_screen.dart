@@ -14,6 +14,7 @@ class _MainScreenState extends State<MainScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        backgroundColor: Colors.white,
         body: _ctrl.tabScreensList[_ctrl.selectedBottomIndex],
         bottomNavigationBar: Theme(
           data: ThemeData(
@@ -21,6 +22,7 @@ class _MainScreenState extends State<MainScreen> {
             highlightColor: Colors.transparent,
           ),
           child: BottomNavigationBar(
+            backgroundColor: Colors.white,
             type: BottomNavigationBarType.fixed,
             showSelectedLabels: false,
             showUnselectedLabels: false,

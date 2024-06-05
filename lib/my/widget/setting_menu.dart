@@ -51,13 +51,6 @@ class SettingMenu extends StatelessWidget {
             ),
           ),
         ),
-        Visibility(
-          visible: !isLast,
-          child: Container(
-            color: Colors.grey[300],
-            height: 1,
-          ),
-        )
       ],
     );
   }

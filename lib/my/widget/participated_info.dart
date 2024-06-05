@@ -9,12 +9,6 @@ class ParticipatedInfo extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Container(
-          height: 1,
-          width: Get.width,
-          color: Colors.grey[200],
-        ),
-        const SizedBox(height: 20),
         const Text(
           '활동 기록',
           style: TextStyle(

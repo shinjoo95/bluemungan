@@ -2,6 +2,7 @@ import 'package:bluemungan/my/screen/setting_screen.dart';
 import 'package:bluemungan/my/widget/participated_info.dart';
 import 'package:bluemungan/my/widget/profile_info.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class MypageScreen extends StatelessWidget {
   const MypageScreen({super.key});
@@ -25,44 +26,34 @@ class MypageScreen extends StatelessWidget {
             fontFamily: 'bold',
           ),
         ),
-        actions: [
-          GestureDetector(
-            child: Container(
-              margin: const EdgeInsets.only(bottom: 5),
-              child: Image.asset(
-                'assets/setting.png',
-                width: 35,
-                height: 35,
-              ),
-            ),
-            onTap: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => const SettingScreen(),
-                ),
-              );
-            },
-          ),
-          const SizedBox(width: 15)
-        ],
       ),
       body: SingleChildScrollView(
         physics: const ClampingScrollPhysics(),
         child: Container(
           margin: const EdgeInsets.symmetric(horizontal: 16),
-          child: const Column(
+          child: Column(
             children: [
-              SizedBox(height: 10),
+              const SizedBox(height: 10),
               //프로필 설정
-              ProfileInfo(),
+              const ProfileInfo(),
+              boundary(),
               //내가 참여한 활동
-              SizedBox(height: 20),
-              ParticipatedInfo(),
+              const ParticipatedInfo(),
+              boundary(),
+              const SettingScreen(),
             ],
           ),
         ),
       ),
+    );
+  }
+
+  Widget boundary() {
+    return Container(
+      margin: const EdgeInsets.symmetric(vertical: 20),
+      height: 1,
+      width: Get.width,
+      color: Colors.grey[200],
     );
   }
 }

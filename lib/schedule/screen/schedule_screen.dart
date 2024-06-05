@@ -13,6 +13,7 @@ class ScheduleScreen extends StatelessWidget {
     final ctrl = Get.put(ScheduleController());
 
     return Scaffold(
+      backgroundColor: Colors.white,
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         leadingWidth: 80,
