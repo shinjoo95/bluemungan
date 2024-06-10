@@ -1,4 +1,5 @@
 // import 'package:bluemungan/schedule/controller/schedule_controller.dart';
+import 'package:bluemungan/common/widgets/boundary.dart';
 import 'package:board_datetime_picker/board_datetime_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -71,7 +72,7 @@ class _ScheduleWriteScreenState extends State<ScheduleWriteScreen> {
                   ),
                 ),
 
-                boundary(),
+                const Boundary(),
 
                 // 활동 이미지 추가
                 const Text(
@@ -92,7 +93,7 @@ class _ScheduleWriteScreenState extends State<ScheduleWriteScreen> {
                   ],
                 ),
 
-                boundary(),
+                const Boundary(),
 
                 const Text(
                   '활동 장소',
@@ -121,7 +122,8 @@ class _ScheduleWriteScreenState extends State<ScheduleWriteScreen> {
                     ),
                   ),
                 ),
-                boundary(),
+
+                const Boundary(),
 
                 const Text(
                   '활동 일시',
@@ -156,6 +158,7 @@ class _ScheduleWriteScreenState extends State<ScheduleWriteScreen> {
                     ),
                   ),
                   onTap: () async {
+                    /// TODO 널체크
                     final result = await showBoardDateTimePicker(
                       minimumDate: DateTime.now(),
                       maximumDate: DateTime(2026),
@@ -185,7 +188,7 @@ class _ScheduleWriteScreenState extends State<ScheduleWriteScreen> {
                   },
                 ),
 
-                boundary(),
+                const Boundary(),
 
                 const Text(
                   '활동 소개',
@@ -311,14 +314,6 @@ class _ScheduleWriteScreenState extends State<ScheduleWriteScreen> {
           ),
         ),
       ],
-    );
-  }
-
-  Widget boundary() {
-    return Container(
-      margin: const EdgeInsets.symmetric(vertical: 10),
-      height: 1,
-      color: Colors.grey[300],
     );
   }
 }

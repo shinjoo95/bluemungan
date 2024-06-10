@@ -1,3 +1,7 @@
+import 'package:bluemungan/common/widgets/boundary.dart';
+import 'package:bluemungan/feed/screen/feed_write_screen.dart';
+import 'package:bluemungan/feed/widget/feed_listview.dart';
+import 'package:bluemungan/feed/widget/total_banner.dart';
 import 'package:flutter/material.dart';
 
 class FeedScreen extends StatelessWidget {
@@ -8,6 +12,7 @@ class FeedScreen extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
+        surfaceTintColor: Colors.transparent,
         backgroundColor: Colors.transparent,
         leadingWidth: 80,
         leading: Image.asset(
@@ -20,6 +25,33 @@ class FeedScreen extends StatelessWidget {
             fontSize: 21,
             fontFamily: 'bold',
           ),
+        ),
+      ),
+      floatingActionButton: FloatingActionButton(
+        mini: true,
+        backgroundColor: Colors.blue[300],
+        child: const Icon(
+          Icons.add,
+          color: Colors.white,
+        ),
+        onPressed: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => const FeedWriteScreen(),
+            ),
+          );
+        },
+      ),
+      body: Container(
+        margin: const EdgeInsets.symmetric(horizontal: 20),
+        child: const Column(
+          children: [
+            SizedBox(height: 10),
+            TotalBanner(),
+            Boundary(marginTop: 16, marginBottom: 0),
+            FeedListview(),
+          ],
         ),
       ),
     );

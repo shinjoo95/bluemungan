@@ -30,6 +30,7 @@ class ScheduleScreen extends StatelessWidget {
         ),
       ),
       floatingActionButton: FloatingActionButton(
+        mini: true,
         backgroundColor: Colors.blue[300],
         child: const Icon(
           Icons.edit,

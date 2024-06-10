@@ -1,3 +1,4 @@
+import 'package:bluemungan/common/widgets/boundary.dart';
 import 'package:bluemungan/my/screen/setting_screen.dart';
 import 'package:bluemungan/my/widget/participated_info.dart';
 import 'package:bluemungan/my/widget/profile_info.dart';
@@ -31,29 +32,20 @@ class MypageScreen extends StatelessWidget {
         physics: const ClampingScrollPhysics(),
         child: Container(
           margin: const EdgeInsets.symmetric(horizontal: 16),
-          child: Column(
+          child: const Column(
             children: [
-              const SizedBox(height: 10),
+              SizedBox(height: 10),
               //프로필 설정
-              const ProfileInfo(),
-              boundary(),
+              ProfileInfo(),
+              Boundary(),
               //내가 참여한 활동
-              const ParticipatedInfo(),
-              boundary(),
-              const SettingScreen(),
+              ParticipatedInfo(),
+              Boundary(),
+              SettingScreen(),
             ],
           ),
         ),
       ),
-    );
-  }
-
-  Widget boundary() {
-    return Container(
-      margin: const EdgeInsets.symmetric(vertical: 20),
-      height: 1,
-      width: Get.width,
-      color: Colors.grey[200],
     );
   }
 }
