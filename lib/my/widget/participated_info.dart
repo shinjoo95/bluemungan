@@ -1,26 +1,28 @@
+import 'package:bluemungan/my/widget/participated_list_item.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 
 class ParticipatedInfo extends StatelessWidget {
   const ParticipatedInfo({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Column(
+    return const Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        const Text(
+        Text(
           '활동 기록',
           style: TextStyle(
             fontSize: 20,
             fontFamily: 'bold',
           ),
         ),
-        const SizedBox(height: 15),
-        Container(
-          height: 80,
-          width: Get.width,
-          color: Colors.amber,
+        SizedBox(height: 5),
+        ParticipatedListItem(
+          title: '도심 플로깅 할 사람!',
+          imageUrl: 'assets/city_img.png',
+          mainTime: '6/22 토',
+          subTime: '6월 22일 토요일 13시',
+          location: '홍대입구역',
         ),
       ],
     );

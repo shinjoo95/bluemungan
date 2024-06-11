@@ -15,7 +15,6 @@ class _ImageSelectListviewState extends State<ImageSelectListview> {
 
   @override
   void dispose() {
-    // TODO: implement dispose
     ctrl.clearWriteParameters();
     super.dispose();
   }
@@ -29,30 +28,40 @@ class _ImageSelectListviewState extends State<ImageSelectListview> {
             ctrl.getMultiImage();
           },
           child: Container(
-            alignment: Alignment.center,
-            height: 100,
-            width: 100,
+            height: 80,
+            width: 80,
             decoration: BoxDecoration(
               border: Border.all(
                 color: Colors.cyan,
                 width: 2,
               ),
-              // color: Colors.amber,
               borderRadius: BorderRadius.circular(3),
             ),
-            child: const Text(
-              '이미지 추가하기',
-              style: TextStyle(
-                fontFamily: 'bold',
-                fontSize: 17,
-                color: Colors.cyan,
-              ),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Image.asset(
+                  'assets/camera_icon.png',
+                  color: Colors.cyan,
+                  cacheWidth: 30,
+                  cacheHeight: 30,
+                ),
+                const SizedBox(height: 3),
+                const Text(
+                  '추가하기',
+                  style: TextStyle(
+                    fontFamily: 'bold',
+                    color: Colors.cyan,
+                    fontSize: 15,
+                  ),
+                )
+              ],
             ),
           ),
         );
       } else {
         return SizedBox(
-          height: 100,
+          height: 80,
           child: ListView.separated(
             shrinkWrap: true,
             // physics: const ClampingScrollPhysics(),
@@ -61,14 +70,17 @@ class _ImageSelectListviewState extends State<ImageSelectListview> {
             itemBuilder: (context, index) {
               print('shin >>> ${ctrl.pickedImagesList.length}');
               return SizedBox(
-                height: 80,
                 width: 80,
+                height: 80,
                 child: Stack(
                   children: [
                     Positioned.fill(
-                      child: Image.file(
-                        File(ctrl.pickedImagesList[index].path),
-                        fit: BoxFit.cover,
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.circular(3),
+                        child: Image.file(
+                          File(ctrl.pickedImagesList[index].path),
+                          fit: BoxFit.cover,
+                        ),
                       ),
                     ),
                     Positioned(
@@ -82,8 +94,9 @@ class _ImageSelectListviewState extends State<ImageSelectListview> {
                           });
                         },
                         child: const Icon(
-                          Icons.cancel_rounded,
-                          color: Colors.black87,
+                          Icons.cancel,
+                          color: Colors.white,
+                          size: 18,
                         ),
                       ),
                     )
@@ -91,7 +104,9 @@ class _ImageSelectListviewState extends State<ImageSelectListview> {
                 ),
               );
             },
-            separatorBuilder: (context, index) => const SizedBox(width: 5),
+            separatorBuilder: (context, index) {
+              return const SizedBox(width: 10);
+            },
           ),
         );
       }

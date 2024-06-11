@@ -3,7 +3,6 @@ import 'package:bluemungan/my/screen/setting_screen.dart';
 import 'package:bluemungan/my/widget/participated_info.dart';
 import 'package:bluemungan/my/widget/profile_info.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 
 class MypageScreen extends StatelessWidget {
   const MypageScreen({super.key});
@@ -13,6 +12,7 @@ class MypageScreen extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
+        surfaceTintColor: Colors.transparent,
         centerTitle: true,
         backgroundColor: Colors.transparent,
         leadingWidth: 80,
@@ -37,10 +37,10 @@ class MypageScreen extends StatelessWidget {
               SizedBox(height: 10),
               //프로필 설정
               ProfileInfo(),
-              Boundary(),
+              Boundary(marginBottom: 20),
               //내가 참여한 활동
               ParticipatedInfo(),
-              Boundary(),
+              Boundary(marginBottom: 20),
               SettingScreen(),
             ],
           ),

@@ -5,8 +5,21 @@ import 'package:bluemungan/schedule/widget/plogging_banner.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class ScheduleScreen extends StatelessWidget {
+class ScheduleScreen extends StatefulWidget {
   const ScheduleScreen({super.key});
+
+  @override
+  State<ScheduleScreen> createState() => _ScheduleScreenState();
+}
+
+class _ScheduleScreenState extends State<ScheduleScreen> {
+  @override
+  void dispose() {
+    if (Get.isRegistered<ScheduleController>()) {
+      Get.delete<ScheduleController>();
+    }
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -88,7 +101,6 @@ class ScheduleScreen extends StatelessWidget {
   }
 
   // 리스트 연동 예정
-  // 예정된 활동
   Widget _planScheduleView() {
     return ListView.builder(
       itemBuilder: (context, index) {

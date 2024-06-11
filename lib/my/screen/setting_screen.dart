@@ -19,8 +19,8 @@ class SettingScreen extends StatelessWidget {
         ),
         const SizedBox(height: 15),
         SettingMenu(
-          icon: 'setting',
-          title: '계정설정',
+          icon: 'assets/profile_setting_icon.png',
+          title: '계정 설정',
           onTap: () {
             Navigator.push(
               context,
@@ -31,22 +31,22 @@ class SettingScreen extends StatelessWidget {
           },
         ),
         SettingMenu(
-          icon: 'setting',
+          icon: 'assets/notice_icon.png',
           title: '공지 사항',
           onTap: () {},
         ),
         SettingMenu(
-          icon: 'setting',
+          icon: 'assets/call_icon.png',
           title: '문의 및 제안',
           onTap: () {},
         ),
         SettingMenu(
-          icon: 'setting',
-          title: '이용약관',
+          icon: 'assets/terms_icon.png',
+          title: '이용 약관',
           onTap: () {},
         ),
         SettingMenu(
-          icon: 'setting',
+          icon: 'assets/info_icon.png',
           title: '앱 제작 정보',
           onTap: () {},
           isLast: true,

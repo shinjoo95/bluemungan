@@ -28,12 +28,13 @@ class _MainScreenState extends State<MainScreen> {
             showUnselectedLabels: false,
             selectedItemColor: Colors.blue,
             items: const [
-              BottomNavigationBarItem(icon: Icon(Icons.home), label: '메인'),
               BottomNavigationBarItem(
-                  icon: Icon(Icons.assignment), label: '게시판'),
+                  icon: Icon(Icons.home_outlined), label: '메인'),
               BottomNavigationBarItem(
-                  icon: Icon(Icons.history), label: '참여한활동'),
-              BottomNavigationBarItem(icon: Icon(Icons.people), label: '마이'),
+                  icon: Icon(Icons.calendar_month), label: '게시판'),
+              BottomNavigationBarItem(icon: Icon(Icons.image), label: '참여한활동'),
+              BottomNavigationBarItem(
+                  icon: Icon(Icons.person_2_outlined), label: '마이'),
             ],
             currentIndex: _ctrl.selectedBottomIndex,
             onTap: (index) => setState(

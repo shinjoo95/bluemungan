@@ -61,8 +61,8 @@ class FeedWriteScreen extends StatelessWidget {
                     ),
                   ),
                 ),
-                const Boundary(),
-                const SizedBox(height: 10),
+                const Boundary(marginBottom: 20),
+
                 const Row(
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
@@ -75,6 +75,55 @@ class FeedWriteScreen extends StatelessWidget {
                     ),
                     SizedBox(width: 30),
                     MonthDropdown(),
+                  ],
+                ),
+                const Boundary(marginTop: 20, marginBottom: 20),
+
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    const Text(
+                      '쓰레기 총량',
+                      style: TextStyle(
+                        fontSize: 20,
+                        fontFamily: 'bold',
+                      ),
+                    ),
+                    const SizedBox(width: 30),
+                    Container(
+                      margin: const EdgeInsets.only(bottom: 10),
+                      height: 35,
+                      width: 80,
+                      child: const TextField(
+                        cursorColor: Colors.black,
+                        cursorHeight: 16,
+                        style: TextStyle(
+                          fontFamily: 'semiBold',
+                          fontSize: 20,
+                        ),
+                        decoration: InputDecoration(
+                          enabledBorder: UnderlineInputBorder(
+                            borderSide: BorderSide(
+                              color: Colors.cyan,
+                              width: 2,
+                            ),
+                          ),
+                          contentPadding: EdgeInsets.zero,
+                          hintText: 'ex) 30.5',
+                          hintStyle: TextStyle(
+                            fontFamily: 'semibold',
+                            fontSize: 16,
+                          ),
+                        ),
+                      ),
+                    ),
+                    const Text(
+                      'kg',
+                      style: TextStyle(
+                        fontSize: 20,
+                        fontFamily: 'bold',
+                      ),
+                    ),
                   ],
                 ),
                 const Boundary(marginTop: 20, marginBottom: 20),
@@ -150,7 +199,7 @@ class FeedWriteScreen extends StatelessWidget {
                           decoration: InputDecoration(
                             contentPadding: EdgeInsets.all(15),
                             hintText:
-                                '예시) 수락산에서 플로깅 할 예정이에요. \n텀블러, 장갑, 손수건을 챙겨와 주세요. \n일정 및 준비물 상세 내용을 써주세요 :)',
+                                '예시) 이번 정기 활동은 어디 어디 다녀왔습니다. \n총 30명이서 활동하였습니다.',
                             hintStyle: TextStyle(
                               fontFamily: 'semibold',
                               fontSize: 16,

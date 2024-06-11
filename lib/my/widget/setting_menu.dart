@@ -23,16 +23,21 @@ class SettingMenu extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        InkWell(
+        GestureDetector(
           onTap: onTap,
-          child: Container(
+          child: SizedBox(
             height: 55,
-            padding: const EdgeInsets.symmetric(horizontal: 16),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Row(
                   children: [
+                    Image.asset(
+                      icon,
+                      width: 25,
+                      height: 25,
+                    ),
+                    const SizedBox(width: 10),
                     //메뉴 타이틀
                     Text(
                       title,
@@ -41,6 +46,7 @@ class SettingMenu extends StatelessWidget {
                     ),
                   ],
                 ),
+
                 //메뉴 진입하기 > 아이콘
                 Image.asset(
                   'assets/arrow_right.png',
