@@ -47,6 +47,7 @@ dependencies:
   uni_links2: ^0.6.0+2
   google_sign_in: ^6.2.1 # 구글 로그인
   board_datetime_picker: ^1.6.6 # 날짜 선택
+  image_picker: ^1.1.2 # 이미지 불러오기
 
 dev_dependencies:
   flutter_test:

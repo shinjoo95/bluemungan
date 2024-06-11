@@ -11,6 +11,7 @@ import 'package:firebase_auth_web/firebase_auth_web.dart';
 import 'package:firebase_core_web/firebase_core_web.dart';
 import 'package:flutter_native_splash/flutter_native_splash_web.dart';
 import 'package:google_sign_in_web/google_sign_in_web.dart';
+import 'package:image_picker_for_web/image_picker_for_web.dart';
 import 'package:kakao_flutter_sdk_common/src/web/kakao_flutter_sdk_plugin.dart';
 import 'package:shared_preferences_web/shared_preferences_web.dart';
 import 'package:uni_links_web2/uni_links_web.dart';
@@ -24,6 +25,7 @@ void registerPlugins([final Registrar? pluginRegistrar]) {
   FirebaseCoreWeb.registerWith(registrar);
   FlutterNativeSplashWeb.registerWith(registrar);
   GoogleSignInPlugin.registerWith(registrar);
+  ImagePickerPlugin.registerWith(registrar);
   KakaoFlutterSdkPlugin.registerWith(registrar);
   SharedPreferencesPlugin.registerWith(registrar);
   UniLinksPlugin.registerWith(registrar);

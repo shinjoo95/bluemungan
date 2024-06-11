@@ -1,11 +1,31 @@
 import 'package:bluemungan/common/widgets/boundary.dart';
+import 'package:bluemungan/feed/controller/feed_controller.dart';
 import 'package:bluemungan/feed/screen/feed_write_screen.dart';
 import 'package:bluemungan/feed/widget/feed_listview.dart';
 import 'package:bluemungan/feed/widget/total_banner.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
-class FeedScreen extends StatelessWidget {
+class FeedScreen extends StatefulWidget {
   const FeedScreen({super.key});
+
+  @override
+  State<FeedScreen> createState() => _FeedScreenState();
+}
+
+class _FeedScreenState extends State<FeedScreen> {
+  @override
+  void initState() {
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    if (Get.isRegistered<FeedController>()) {
+      Get.delete<FeedController>();
+    }
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
