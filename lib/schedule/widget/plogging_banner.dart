@@ -9,7 +9,7 @@ class PloggingBanner extends StatelessWidget {
     return Container(
       margin: const EdgeInsets.symmetric(horizontal: 16),
       padding: const EdgeInsets.all(5),
-      height: 80,
+      height: 85,
       width: Get.width,
       decoration: BoxDecoration(
         color: Colors.cyan,
@@ -29,7 +29,7 @@ class PloggingBanner extends StatelessWidget {
               Text(
                 '플로깅(PLOGGING)이란?',
                 style: TextStyle(
-                  fontSize: 25,
+                  fontSize: 22,
                   fontFamily: 'bold',
                   color: Colors.lightGreenAccent[200],
                 ),
@@ -40,7 +40,7 @@ class PloggingBanner extends StatelessWidget {
                 style: TextStyle(
                   color: Colors.black,
                   fontFamily: 'semiBold',
-                  fontSize: 16,
+                  fontSize: 13,
                 ),
               ),
               const Text(
@@ -48,7 +48,7 @@ class PloggingBanner extends StatelessWidget {
                 style: TextStyle(
                   color: Colors.black,
                   fontFamily: 'semiBold',
-                  fontSize: 16,
+                  fontSize: 13,
                 ),
               ),
             ],

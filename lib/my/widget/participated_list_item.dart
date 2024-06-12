@@ -45,7 +45,7 @@ class ParticipatedListItem extends StatelessWidget {
           Text(
             mainTime,
             style: const TextStyle(
-              fontSize: 20,
+              fontSize: 17,
               fontFamily: 'bold',
             ),
           ),
@@ -57,7 +57,7 @@ class ParticipatedListItem extends StatelessWidget {
             child: Text(
               title,
               style: const TextStyle(
-                fontSize: 20,
+                fontSize: 17,
                 fontFamily: 'bold',
               ),
               overflow: TextOverflow.ellipsis,
@@ -95,7 +95,7 @@ class ParticipatedListItem extends StatelessWidget {
                           text: '일시',
                           style: TextStyle(
                             color: Colors.grey,
-                            fontSize: 15,
+                            fontSize: 13,
                             fontFamily: 'semiBold',
                           ),
                         ),
@@ -124,7 +124,7 @@ class ParticipatedListItem extends StatelessWidget {
                           text: '위치',
                           style: TextStyle(
                             color: Colors.grey,
-                            fontSize: 15,
+                            fontSize: 13,
                             fontFamily: 'semiBold',
                           ),
                         ),
@@ -152,7 +152,7 @@ class ParticipatedListItem extends StatelessWidget {
                           text: '참여',
                           style: TextStyle(
                             color: Colors.grey,
-                            fontSize: 15,
+                            fontSize: 13,
                             fontFamily: 'semiBold',
                           ),
                         ),

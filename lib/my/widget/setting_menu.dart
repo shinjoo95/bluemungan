@@ -34,15 +34,17 @@ class SettingMenu extends StatelessWidget {
                   children: [
                     Image.asset(
                       icon,
-                      width: 25,
-                      height: 25,
+                      width: 23,
+                      height: 23,
                     ),
                     const SizedBox(width: 10),
                     //메뉴 타이틀
                     Text(
                       title,
-                      style:
-                          const TextStyle(fontSize: 15, fontFamily: 'semiBold'),
+                      style: const TextStyle(
+                        fontSize: 14,
+                        fontFamily: 'semiBold',
+                      ),
                     ),
                   ],
                 ),
@@ -50,8 +52,8 @@ class SettingMenu extends StatelessWidget {
                 //메뉴 진입하기 > 아이콘
                 Image.asset(
                   'assets/arrow_right.png',
-                  width: 15,
-                  height: 15,
+                  width: 12,
+                  height: 12,
                 ),
               ],
             ),

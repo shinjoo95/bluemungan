@@ -14,7 +14,7 @@ class SettingScreen extends StatelessWidget {
           '설정 및 문의',
           style: TextStyle(
             fontFamily: 'bold',
-            fontSize: 20,
+            fontSize: 17,
           ),
         ),
         const SizedBox(height: 15),

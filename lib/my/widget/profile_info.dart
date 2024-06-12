@@ -15,9 +15,13 @@ class ProfileInfo extends StatelessWidget {
               ClipRRect(
                 borderRadius: BorderRadius.circular(10),
                 child: Container(
-                  color: Colors.cyan,
+                  color: Colors.pink,
                   width: 60,
                   height: 60,
+                  child: Image.asset(
+                    'assets/hayeon.jpeg',
+                    fit: BoxFit.fill,
+                  ),
                 ),
               ),
             ],
@@ -29,10 +33,10 @@ class ProfileInfo extends StatelessWidget {
               Row(
                 children: [
                   Text(
-                    '신주용',
+                    '권하연',
                     style: TextStyle(
                       color: Colors.black,
-                      fontSize: 22,
+                      fontSize: 19,
                       fontFamily: 'semiBold',
                     ),
                   ),

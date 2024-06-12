@@ -23,7 +23,7 @@ class MypageScreen extends StatelessWidget {
         title: const Text(
           '마이페이지',
           style: TextStyle(
-            fontSize: 21,
+            fontSize: 18,
             fontFamily: 'bold',
           ),
         ),

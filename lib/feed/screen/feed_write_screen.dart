@@ -21,7 +21,7 @@ class FeedWriteScreen extends StatelessWidget {
           title: const Text(
             '피드 작성하기',
             style: TextStyle(
-              fontSize: 21,
+              fontSize: 18,
               fontFamily: 'bold',
             ),
           ),
@@ -36,7 +36,7 @@ class FeedWriteScreen extends StatelessWidget {
                 const Text(
                   '피드 제목',
                   style: TextStyle(
-                    fontSize: 20,
+                    fontSize: 17,
                     fontFamily: 'bold',
                   ),
                 ),
@@ -48,7 +48,7 @@ class FeedWriteScreen extends StatelessWidget {
                     cursorHeight: 16,
                     style: TextStyle(
                       fontFamily: 'semiBold',
-                      fontSize: 17,
+                      fontSize: 14,
                     ),
                     decoration: InputDecoration(
                       border: InputBorder.none,
@@ -56,7 +56,7 @@ class FeedWriteScreen extends StatelessWidget {
                       hintText: '활동 내용을 간락하게 작성하세요. ex) ~ 다녀왔어요',
                       hintStyle: TextStyle(
                         fontFamily: 'semibold',
-                        fontSize: 16,
+                        fontSize: 14,
                       ),
                     ),
                   ),
@@ -69,7 +69,7 @@ class FeedWriteScreen extends StatelessWidget {
                     Text(
                       '활동 일시',
                       style: TextStyle(
-                        fontSize: 20,
+                        fontSize: 17,
                         fontFamily: 'bold',
                       ),
                     ),
@@ -85,7 +85,7 @@ class FeedWriteScreen extends StatelessWidget {
                     const Text(
                       '쓰레기 총량',
                       style: TextStyle(
-                        fontSize: 20,
+                        fontSize: 17,
                         fontFamily: 'bold',
                       ),
                     ),
@@ -99,7 +99,7 @@ class FeedWriteScreen extends StatelessWidget {
                         cursorHeight: 16,
                         style: TextStyle(
                           fontFamily: 'semiBold',
-                          fontSize: 20,
+                          fontSize: 17,
                         ),
                         decoration: InputDecoration(
                           enabledBorder: UnderlineInputBorder(
@@ -112,7 +112,7 @@ class FeedWriteScreen extends StatelessWidget {
                           hintText: 'ex) 30.5',
                           hintStyle: TextStyle(
                             fontFamily: 'semibold',
-                            fontSize: 16,
+                            fontSize: 14,
                           ),
                         ),
                       ),
@@ -120,7 +120,7 @@ class FeedWriteScreen extends StatelessWidget {
                     const Text(
                       'kg',
                       style: TextStyle(
-                        fontSize: 20,
+                        fontSize: 17,
                         fontFamily: 'bold',
                       ),
                     ),
@@ -135,7 +135,7 @@ class FeedWriteScreen extends StatelessWidget {
                       const TextSpan(
                         text: '활동 이미지',
                         style: TextStyle(
-                          fontSize: 16,
+                          fontSize: 17,
                           fontFamily: 'bold',
                           color: Colors.black,
                         ),
@@ -165,7 +165,7 @@ class FeedWriteScreen extends StatelessWidget {
                 const Text(
                   '활동 후기',
                   style: TextStyle(
-                    fontSize: 20,
+                    fontSize: 17,
                     fontFamily: 'bold',
                   ),
                 ),
@@ -173,7 +173,7 @@ class FeedWriteScreen extends StatelessWidget {
                 const Text(
                   '상세한 후기를 적어주세요.',
                   style: TextStyle(
-                    fontSize: 17,
+                    fontSize: 13,
                     fontFamily: 'semiBold',
                   ),
                 ),
@@ -190,7 +190,7 @@ class FeedWriteScreen extends StatelessWidget {
                           cursorHeight: 16,
                           style: TextStyle(
                             fontFamily: 'semiBold',
-                            fontSize: 17,
+                            fontSize: 14,
                           ),
                           textAlignVertical: TextAlignVertical(y: -1),
                           expands: true,
@@ -202,7 +202,7 @@ class FeedWriteScreen extends StatelessWidget {
                                 '예시) 이번 정기 활동은 어디 어디 다녀왔습니다. \n총 30명이서 활동하였습니다.',
                             hintStyle: TextStyle(
                               fontFamily: 'semibold',
-                              fontSize: 16,
+                              fontSize: 13,
                               height: 1.7,
                             ),
                             enabledBorder: OutlineInputBorder(
@@ -238,7 +238,7 @@ class FeedWriteScreen extends StatelessWidget {
                     child: const Text(
                       '등록하기',
                       style: TextStyle(
-                        fontSize: 17,
+                        fontSize: 15,
                         fontFamily: 'bold',
                         color: Colors.white,
                         letterSpacing: 2,

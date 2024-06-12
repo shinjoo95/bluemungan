@@ -42,7 +42,7 @@ class _FeedScreenState extends State<FeedScreen> {
         title: const Text(
           '활동 피드',
           style: TextStyle(
-            fontSize: 21,
+            fontSize: 18,
             fontFamily: 'bold',
           ),
         ),

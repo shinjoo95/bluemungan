@@ -63,7 +63,7 @@ Widget bottomIcons(
         Text(
           iconText,
           style: const TextStyle(
-            fontSize: 16,
+            fontSize: 13,
             letterSpacing: 1,
             fontFamily: 'semiBold',
           ),

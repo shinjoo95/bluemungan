@@ -31,7 +31,7 @@ class _ScheduleWriteScreenState extends State<ScheduleWriteScreen> {
           title: const Text(
             '활동 추가하기',
             style: TextStyle(
-              fontSize: 21,
+              fontSize: 18,
               fontFamily: 'bold',
             ),
           ),
@@ -47,7 +47,7 @@ class _ScheduleWriteScreenState extends State<ScheduleWriteScreen> {
                 const Text(
                   '활동 제목',
                   style: TextStyle(
-                    fontSize: 20,
+                    fontSize: 17,
                     fontFamily: 'bold',
                   ),
                 ),
@@ -58,7 +58,7 @@ class _ScheduleWriteScreenState extends State<ScheduleWriteScreen> {
                     cursorHeight: 16,
                     style: TextStyle(
                       fontFamily: 'semiBold',
-                      fontSize: 17,
+                      fontSize: 14,
                     ),
                     decoration: InputDecoration(
                       border: InputBorder.none,
@@ -66,7 +66,7 @@ class _ScheduleWriteScreenState extends State<ScheduleWriteScreen> {
                       hintText: '활동 제목을 입력하세요.',
                       hintStyle: TextStyle(
                         fontFamily: 'semibold',
-                        fontSize: 16,
+                        fontSize: 14,
                       ),
                     ),
                   ),
@@ -78,7 +78,7 @@ class _ScheduleWriteScreenState extends State<ScheduleWriteScreen> {
                 const Text(
                   '활동 종류',
                   style: TextStyle(
-                    fontSize: 20,
+                    fontSize: 17,
                     fontFamily: 'bold',
                   ),
                 ),
@@ -93,12 +93,14 @@ class _ScheduleWriteScreenState extends State<ScheduleWriteScreen> {
                   ],
                 ),
 
-                const Boundary(),
+                const Boundary(
+                  marginBottom: 20,
+                ),
 
                 const Text(
                   '활동 장소',
                   style: TextStyle(
-                    fontSize: 20,
+                    fontSize: 17,
                     fontFamily: 'bold',
                   ),
                 ),
@@ -109,7 +111,7 @@ class _ScheduleWriteScreenState extends State<ScheduleWriteScreen> {
                     cursorHeight: 16,
                     style: TextStyle(
                       fontFamily: 'semiBold',
-                      fontSize: 17,
+                      fontSize: 14,
                     ),
                     decoration: InputDecoration(
                       contentPadding: EdgeInsets.only(bottom: 10),
@@ -117,18 +119,18 @@ class _ScheduleWriteScreenState extends State<ScheduleWriteScreen> {
                       hintText: '예시) 합정역 8번 출구, 관악산 서울대 입구 매표소',
                       hintStyle: TextStyle(
                         fontFamily: 'semibold',
-                        fontSize: 16,
+                        fontSize: 14,
                       ),
                     ),
                   ),
                 ),
 
-                const Boundary(),
+                const Boundary(marginBottom: 20),
 
                 const Text(
                   '활동 일시',
                   style: TextStyle(
-                    fontSize: 20,
+                    fontSize: 17,
                     fontFamily: 'bold',
                   ),
                 ),
@@ -152,7 +154,7 @@ class _ScheduleWriteScreenState extends State<ScheduleWriteScreen> {
                       BoardDateFormat('yyyy년 MM월 dd일  h시').format(date),
                       style: const TextStyle(
                         fontFamily: 'bold',
-                        fontSize: 20,
+                        fontSize: 14,
                         color: Colors.cyan,
                       ),
                     ),
@@ -166,7 +168,7 @@ class _ScheduleWriteScreenState extends State<ScheduleWriteScreen> {
                       options: BoardDateTimeOptions(
                         boardTitleTextStyle: const TextStyle(
                           fontFamily: 'bold',
-                          fontSize: 20,
+                          fontSize: 17,
                         ),
                         backgroundColor: Colors.white,
                         foregroundColor: Colors.grey[200],
@@ -188,12 +190,12 @@ class _ScheduleWriteScreenState extends State<ScheduleWriteScreen> {
                   },
                 ),
 
-                const Boundary(),
+                const Boundary(marginBottom: 20),
 
                 const Text(
                   '활동 소개',
                   style: TextStyle(
-                    fontSize: 20,
+                    fontSize: 17,
                     fontFamily: 'bold',
                   ),
                 ),
@@ -201,7 +203,7 @@ class _ScheduleWriteScreenState extends State<ScheduleWriteScreen> {
                 const Text(
                   '구체적인 안내사항을 알려주세요.',
                   style: TextStyle(
-                    fontSize: 15,
+                    fontSize: 13,
                     fontFamily: 'semiBold',
                   ),
                 ),
@@ -218,7 +220,7 @@ class _ScheduleWriteScreenState extends State<ScheduleWriteScreen> {
                           cursorHeight: 16,
                           style: TextStyle(
                             fontFamily: 'semiBold',
-                            fontSize: 17,
+                            fontSize: 14,
                           ),
                           textAlignVertical: TextAlignVertical(y: -1),
                           expands: true,
@@ -230,7 +232,7 @@ class _ScheduleWriteScreenState extends State<ScheduleWriteScreen> {
                                 '예시) 수락산에서 플로깅 할 예정이에요. \n텀블러, 장갑, 손수건을 챙겨와 주세요. \n일정 및 준비물 상세 내용을 써주세요 :)',
                             hintStyle: TextStyle(
                               fontFamily: 'semibold',
-                              fontSize: 16,
+                              fontSize: 13,
                               height: 1.7,
                             ),
                             enabledBorder: OutlineInputBorder(
@@ -265,7 +267,7 @@ class _ScheduleWriteScreenState extends State<ScheduleWriteScreen> {
                     child: const Text(
                       '등록하기',
                       style: TextStyle(
-                        fontSize: 17,
+                        fontSize: 15,
                         fontFamily: 'bold',
                         color: Colors.white,
                         letterSpacing: 2,

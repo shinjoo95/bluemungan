@@ -52,7 +52,7 @@ class _ImageSelectListviewState extends State<ImageSelectListview> {
                   style: TextStyle(
                     fontFamily: 'bold',
                     color: Colors.cyan,
-                    fontSize: 15,
+                    fontSize: 12,
                   ),
                 )
               ],

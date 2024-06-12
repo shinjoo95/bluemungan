@@ -37,7 +37,7 @@ class _ScheduleScreenState extends State<ScheduleScreen> {
         title: const Text(
           '활동 신청하기',
           style: TextStyle(
-            fontSize: 21,
+            fontSize: 18,
             fontFamily: 'bold',
           ),
         ),
@@ -74,8 +74,8 @@ class _ScheduleScreenState extends State<ScheduleScreen> {
               indicatorSize: TabBarIndicatorSize.tab,
               labelStyle: const TextStyle(
                 color: Colors.white,
-                fontSize: 20,
-                fontFamily: 'semiBold',
+                fontSize: 15,
+                fontFamily: 'bold',
               ),
               indicatorWeight: 3,
               tabs: const [

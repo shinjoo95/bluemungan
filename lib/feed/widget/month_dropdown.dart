@@ -35,7 +35,10 @@ class _MonthDropdownState extends State<MonthDropdown> {
   Widget build(BuildContext context) {
     return DropdownButton(
       style: const TextStyle(
-          color: Colors.black, fontSize: 20, fontFamily: 'semiBold'),
+        color: Colors.black,
+        fontSize: 17,
+        fontFamily: 'semiBold',
+      ),
       dropdownColor: Colors.grey[200],
       isDense: false,
       value: selectMonth,

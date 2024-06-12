@@ -49,7 +49,7 @@ class FeedItem extends StatelessWidget {
                 style: TextStyle(
                   color: Colors.black,
                   fontFamily: 'bold',
-                  fontSize: 17,
+                  fontSize: 13,
                 ),
               ),
             ),

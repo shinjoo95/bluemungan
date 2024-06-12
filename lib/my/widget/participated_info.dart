@@ -12,7 +12,7 @@ class ParticipatedInfo extends StatelessWidget {
         Text(
           '활동 기록',
           style: TextStyle(
-            fontSize: 20,
+            fontSize: 17,
             fontFamily: 'bold',
           ),
         ),
