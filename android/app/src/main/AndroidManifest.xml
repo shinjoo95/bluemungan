@@ -7,7 +7,7 @@
         android:label="bluemungan"
         android:name="${applicationName}"
         android:requestLegacyExternalStorage="true"
-        android:icon="@mipmap/ic_launcher">
+        android:icon="@mipmap/bluemungan">
         <meta-data
             android:name="com.naver.sdk.clientId"
             android:value="@string/client_id" />
