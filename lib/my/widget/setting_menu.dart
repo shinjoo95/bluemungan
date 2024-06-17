@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 /// 마이공구 하단 메뉴
 class SettingMenu extends StatelessWidget {
@@ -23,9 +24,10 @@ class SettingMenu extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        GestureDetector(
+        InkWell(
           onTap: onTap,
           child: SizedBox(
+            width: Get.width,
             height: 55,
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
