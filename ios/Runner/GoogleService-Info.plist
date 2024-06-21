@@ -32,5 +32,7 @@
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
 	<string>1:454016135198:ios:8772fe1af92e38af42be0f</string>
+	<key>DATABASE_URL</key>
+	<string>https://bluemungan-default-rtdb.asia-southeast1.firebasedatabase.app</string>
 </dict>
 </plist>

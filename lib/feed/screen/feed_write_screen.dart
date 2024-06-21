@@ -1,14 +1,25 @@
 import 'package:bluemungan/common/widgets/boundary.dart';
+import 'package:bluemungan/feed/controller/feed_controller.dart';
 import 'package:bluemungan/feed/widget/image_select_listview.dart';
 import 'package:bluemungan/feed/widget/month_dropdown.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class FeedWriteScreen extends StatelessWidget {
+class FeedWriteScreen extends StatefulWidget {
   const FeedWriteScreen({super.key});
 
   @override
+  State<FeedWriteScreen> createState() => _FeedWriteScreenState();
+}
+
+class _FeedWriteScreenState extends State<FeedWriteScreen> {
+  FirebaseFirestore _firestore = FirebaseFirestore.instance;
+  @override
   Widget build(BuildContext context) {
+    final ctrl = Get.put(FeedController());
+    String feedTitle = '';
+
     return GestureDetector(
       onTap: () {
         FocusManager.instance.primaryFocus?.unfocus();
@@ -41,16 +52,17 @@ class FeedWriteScreen extends StatelessWidget {
                   ),
                 ),
 
-                const SizedBox(
+                SizedBox(
                   height: 35,
                   child: TextField(
+                    controller: ctrl.titleController,
                     cursorColor: Colors.black,
                     cursorHeight: 16,
-                    style: TextStyle(
+                    style: const TextStyle(
                       fontFamily: 'semiBold',
                       fontSize: 14,
                     ),
-                    decoration: InputDecoration(
+                    decoration: const InputDecoration(
                       border: InputBorder.none,
                       contentPadding: EdgeInsets.zero,
                       hintText: '활동 내용을 간락하게 작성하세요. ex) ~ 다녀왔어요',
@@ -59,6 +71,11 @@ class FeedWriteScreen extends StatelessWidget {
                         fontSize: 14,
                       ),
                     ),
+                    onChanged: (value) {
+                      setState(() {
+                        feedTitle = value;
+                      });
+                    },
                   ),
                 ),
                 const Boundary(marginBottom: 20),
@@ -94,14 +111,15 @@ class FeedWriteScreen extends StatelessWidget {
                       margin: const EdgeInsets.only(bottom: 10),
                       height: 35,
                       width: 80,
-                      child: const TextField(
+                      child: TextField(
+                        controller: ctrl.totalWeightController,
                         cursorColor: Colors.black,
                         cursorHeight: 16,
-                        style: TextStyle(
+                        style: const TextStyle(
                           fontFamily: 'semiBold',
                           fontSize: 17,
                         ),
-                        decoration: InputDecoration(
+                        decoration: const InputDecoration(
                           enabledBorder: UnderlineInputBorder(
                             borderSide: BorderSide(
                               color: Colors.cyan,
@@ -179,24 +197,25 @@ class FeedWriteScreen extends StatelessWidget {
                 ),
                 const SizedBox(height: 10),
 
-                const SizedBox(
+                SizedBox(
                   height: 120,
                   // Expanded는 Column, Row, Flex 위젯 내에서만 사용 가능.
                   child: Column(
                     children: [
                       Expanded(
                         child: TextField(
+                          controller: ctrl.reviewController,
                           cursorColor: Colors.black,
                           cursorHeight: 16,
-                          style: TextStyle(
+                          style: const TextStyle(
                             fontFamily: 'semiBold',
                             fontSize: 14,
                           ),
-                          textAlignVertical: TextAlignVertical(y: -1),
+                          textAlignVertical: const TextAlignVertical(y: -1),
                           expands: true,
                           keyboardType: TextInputType.multiline,
                           maxLines: null,
-                          decoration: InputDecoration(
+                          decoration: const InputDecoration(
                             contentPadding: EdgeInsets.all(15),
                             hintText:
                                 '예시) 이번 정기 활동은 어디 어디 다녀왔습니다. \n총 30명이서 활동하였습니다.',
@@ -247,8 +266,13 @@ class FeedWriteScreen extends StatelessWidget {
                   ),
                   onTap: () {
                     /// TODO 개설 기능 추가
-
-                    Navigator.pop(context);
+                    // ctrl.writeFeed(feedTitle: 'dddd');
+                    _firestore.collection('feed').doc().set({
+                      'title': '안녕',
+                    }).onError((e, _) => print("Error writing document: $e"));
+                    // Navigator.pop(context);
+                    print('shin >>>> press');
+                    print('shin >>>> $feedTitle');
                   },
                 ),
               ],
