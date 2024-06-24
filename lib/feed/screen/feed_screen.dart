@@ -17,6 +17,7 @@ class _FeedScreenState extends State<FeedScreen> {
   @override
   void initState() {
     Get.put(FeedController());
+
     super.initState();
   }
 
@@ -66,7 +67,7 @@ class _FeedScreenState extends State<FeedScreen> {
       ),
       body: Container(
         margin: const EdgeInsets.symmetric(horizontal: 20),
-        child: const Column(
+        child: Column(
           children: [
             SizedBox(height: 10),
             TotalBanner(),

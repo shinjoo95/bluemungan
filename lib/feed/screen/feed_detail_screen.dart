@@ -2,7 +2,18 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class FeedDetailScreen extends StatelessWidget {
-  const FeedDetailScreen({super.key});
+  final String date;
+  final String title;
+  final double totalWeight;
+  final String review;
+
+  const FeedDetailScreen({
+    super.key,
+    required this.date,
+    required this.totalWeight,
+    required this.review,
+    required this.title,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -11,9 +22,9 @@ class FeedDetailScreen extends StatelessWidget {
       appBar: AppBar(
         surfaceTintColor: Colors.transparent,
         backgroundColor: Colors.transparent,
-        title: const Text(
-          '1월',
-          style: TextStyle(
+        title: Text(
+          '$date월',
+          style: const TextStyle(
             fontSize: 18,
             fontFamily: 'bold',
           ),
@@ -37,11 +48,11 @@ class FeedDetailScreen extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const SizedBox(
+                  SizedBox(
                     height: 30,
                     child: Text(
-                      '해안 플로깅 다녀왔져욤',
-                      style: TextStyle(
+                      title,
+                      style: const TextStyle(
                         fontFamily: 'bold',
                         fontSize: 20,
                       ),
@@ -49,9 +60,9 @@ class FeedDetailScreen extends StatelessWidget {
                   ),
                   const SizedBox(height: 10),
                   RichText(
-                    text: const TextSpan(
+                    text: TextSpan(
                       children: [
-                        TextSpan(
+                        const TextSpan(
                           text: '🗑️ 쓰줍량 ',
                           style: TextStyle(
                             fontSize: 15,
@@ -59,14 +70,14 @@ class FeedDetailScreen extends StatelessWidget {
                             color: Colors.black,
                           ),
                         ),
-                        WidgetSpan(
+                        const WidgetSpan(
                           child: SizedBox(
                             width: 3,
                           ),
                         ),
                         TextSpan(
-                          text: '13.5 Kg',
-                          style: TextStyle(
+                          text: '${totalWeight.toString()} Kg',
+                          style: const TextStyle(
                             color: Colors.red,
                             fontSize: 15,
                             fontFamily: 'bold',

@@ -3,7 +3,18 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class FeedItem extends StatelessWidget {
-  const FeedItem({super.key});
+  final String date;
+  final String title;
+  final double totalWeight;
+  final String review;
+
+  const FeedItem({
+    super.key,
+    required this.date,
+    required this.totalWeight,
+    required this.review,
+    required this.title,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -12,7 +23,12 @@ class FeedItem extends StatelessWidget {
         Navigator.push(
           context,
           MaterialPageRoute(
-            builder: (context) => const FeedDetailScreen(),
+            builder: (context) => FeedDetailScreen(
+              date: date,
+              review: review,
+              title: title,
+              totalWeight: totalWeight,
+            ),
           ),
         );
       },
@@ -54,9 +70,9 @@ class FeedItem extends StatelessWidget {
                     bottomRight: Radius.circular(3),
                   ),
                 ),
-                child: const Text(
-                  '5월',
-                  style: TextStyle(
+                child: Text(
+                  '$date월',
+                  style: const TextStyle(
                     color: Colors.black,
                     fontFamily: 'bold',
                     fontSize: 13,

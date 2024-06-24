@@ -1,5 +1,6 @@
 import 'package:bluemungan/common/widgets/boundary.dart';
 import 'package:bluemungan/feed/controller/feed_controller.dart';
+import 'package:bluemungan/feed/model/feed_model.dart';
 import 'package:bluemungan/feed/widget/image_select_listview.dart';
 import 'package:bluemungan/feed/widget/month_dropdown.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -22,6 +23,7 @@ class _FeedWriteScreenState extends State<FeedWriteScreen> {
     "state": "CA",
     "country": "USA"
   };
+
   @override
   Widget build(BuildContext context) {
     String feedTitle = '';
