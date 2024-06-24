@@ -1,6 +1,7 @@
 // import 'package:bluemungan/schedule/controller/schedule_controller.dart';
 import 'package:bluemungan/common/widgets/boundary.dart';
 import 'package:board_datetime_picker/board_datetime_picker.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 // import 'package:get/get.dart';
@@ -274,10 +275,13 @@ class _ScheduleWriteScreenState extends State<ScheduleWriteScreen> {
                       ),
                     ),
                   ),
-                  onTap: () {
+                  onTap: () async {
                     /// TODO 개설 기능 추가
+                    await FirebaseFirestore.instance
+                        .collection('active')
+                        .add({'title': 'shin'});
 
-                    Navigator.pop(context);
+                    // Navigator.pop(context);
                   },
                 ),
               ],

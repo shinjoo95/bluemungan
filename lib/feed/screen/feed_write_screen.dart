@@ -7,18 +7,25 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class FeedWriteScreen extends StatefulWidget {
-  const FeedWriteScreen({super.key});
+  const FeedWriteScreen({
+    super.key,
+  });
 
   @override
   State<FeedWriteScreen> createState() => _FeedWriteScreenState();
 }
 
 class _FeedWriteScreenState extends State<FeedWriteScreen> {
-  FirebaseFirestore _firestore = FirebaseFirestore.instance;
+  final ctrl = Get.find<FeedController>();
+  final city = <String, String>{
+    "name": "Los Angeles",
+    "state": "CA",
+    "country": "USA"
+  };
   @override
   Widget build(BuildContext context) {
-    final ctrl = Get.put(FeedController());
     String feedTitle = '';
+    FirebaseFirestore firestore = FirebaseFirestore.instance;
 
     return GestureDetector(
       onTap: () {
@@ -73,7 +80,7 @@ class _FeedWriteScreenState extends State<FeedWriteScreen> {
                     ),
                     onChanged: (value) {
                       setState(() {
-                        feedTitle = value;
+                        ctrl.title = value;
                       });
                     },
                   ),
@@ -265,14 +272,16 @@ class _FeedWriteScreenState extends State<FeedWriteScreen> {
                     ),
                   ),
                   onTap: () {
+                    ctrl.writeFeed(feedTitle: '안녕');
+                    print('shin >>>> feedtitle : $feedTitle');
+                    firestore.collection("shin").add(city);
+                    firestore
+                        .collection('collectionPath')
+                        .add({'shin': 'shin '});
+                    // Navigator.pop(context);
+
                     /// TODO 개설 기능 추가
                     // ctrl.writeFeed(feedTitle: 'dddd');
-                    _firestore.collection('feed').doc().set({
-                      'title': '안녕',
-                    }).onError((e, _) => print("Error writing document: $e"));
-                    // Navigator.pop(context);
-                    print('shin >>>> press');
-                    print('shin >>>> $feedTitle');
                   },
                 ),
               ],

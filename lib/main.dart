@@ -17,8 +17,8 @@ void main() async {
   ]);
   FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
   await Firebase.initializeApp(
-      // options: DefaultFirebaseOptions.currentPlatform,
-      );
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
   KakaoSdk.init(nativeAppKey: '3a7d2ab10030b990c134c3425f4071e2');
   Get.put(MainController());
   FlutterNativeSplash.remove();

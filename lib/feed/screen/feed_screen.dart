@@ -16,6 +16,7 @@ class FeedScreen extends StatefulWidget {
 class _FeedScreenState extends State<FeedScreen> {
   @override
   void initState() {
+    Get.put(FeedController());
     super.initState();
   }
 

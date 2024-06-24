@@ -6,6 +6,7 @@ class ScheduleController extends GetxController
     with GetSingleTickerProviderStateMixin {
   TabController? tabCtrl;
   int selectedImg = 0;
+  List activeImagePath = [];
 
   @override
   void onInit() {
