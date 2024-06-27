@@ -2,6 +2,7 @@ import 'package:bluemungan/schedule/controller/schedule_controller.dart';
 import 'package:bluemungan/schedule/screen/schedule_write_screen.dart';
 import 'package:bluemungan/schedule/widget/list_item.dart';
 import 'package:bluemungan/schedule/widget/plogging_banner.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -13,6 +14,12 @@ class ScheduleScreen extends StatefulWidget {
 }
 
 class _ScheduleScreenState extends State<ScheduleScreen> {
+  @override
+  void initState() {
+    // TODO: implement initState
+    Get.put(ScheduleController());
+  }
+
   @override
   void dispose() {
     if (Get.isRegistered<ScheduleController>()) {
@@ -89,7 +96,7 @@ class _ScheduleScreenState extends State<ScheduleScreen> {
               controller: ctrl.tabCtrl,
               children: [
                 // 예정된 활동
-                _planScheduleView(),
+                _planScheduleView(ctrl: ctrl),
                 _completedScheduleView(),
                 // 지난 활동
               ],
@@ -101,18 +108,47 @@ class _ScheduleScreenState extends State<ScheduleScreen> {
   }
 
   // 리스트 연동 예정
-  Widget _planScheduleView() {
-    return ListView.builder(
-      itemBuilder: (context, index) {
-        return ListItem(
-          title: '도심 플로깅 할 사람!',
-          imageUrl: 'assets/city_img.png',
-          mainTime: '6/22 토',
-          subTime: '6월 22일 토요일 13시',
-          location: '홍대입구역',
-        );
-      },
-      itemCount: 10,
+  Widget _planScheduleView({
+    required ScheduleController ctrl,
+  }) {
+    final Stream<QuerySnapshot> scheduleStream =
+        FirebaseFirestore.instance.collection('schedule').snapshots();
+    return Column(
+      children: [
+        Expanded(
+          child: StreamBuilder(
+            stream: scheduleStream,
+            builder: (context, snapshot) {
+              print('shin >>> ${snapshot.data?.docs.length}');
+              if (!snapshot.hasData) {
+                return const Text('no data!');
+              }
+              if (snapshot.hasError) {
+                return Text('Failed!');
+              }
+              return ListView(
+                children: snapshot.data!.docs.map((DocumentSnapshot document) {
+                  Map<String, dynamic> data =
+                      document.data() as Map<String, dynamic>;
+                  if (data.isEmpty) {
+                    return const Center(
+                      child: CircularProgressIndicator(),
+                    );
+                  }
+                  return ListItem(
+                    title: data['title'] ?? '',
+                    imageUrl: '',
+                    introduce: data['introduce'],
+                    location: data['location'] ?? '',
+                    mainTime: '',
+                    subTime: '',
+                  );
+                }).toList(),
+              );
+            },
+          ),
+        ),
+      ],
     );
   }
 
@@ -121,6 +157,7 @@ class _ScheduleScreenState extends State<ScheduleScreen> {
     return ListView.builder(
       itemBuilder: (context, index) {
         return ListItem(
+          introduce: '',
           title: '등산 플로깅 갈 사람',
           imageUrl: 'assets/mount_img.png',
           mainTime: '4/22 토',

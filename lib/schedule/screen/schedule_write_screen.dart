@@ -1,7 +1,7 @@
 // import 'package:bluemungan/schedule/controller/schedule_controller.dart';
 import 'package:bluemungan/common/widgets/boundary.dart';
+import 'package:bluemungan/schedule/controller/schedule_controller.dart';
 import 'package:board_datetime_picker/board_datetime_picker.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 // import 'package:get/get.dart';
@@ -19,7 +19,7 @@ class _ScheduleWriteScreenState extends State<ScheduleWriteScreen> {
   DateTime date = DateTime.now();
   @override
   Widget build(BuildContext context) {
-    // final ctrl = Get.put(ScheduleController());
+    final ctrl = Get.find<ScheduleController>();
     return GestureDetector(
       onTap: () {
         FocusManager.instance.primaryFocus?.unfocus();
@@ -52,16 +52,17 @@ class _ScheduleWriteScreenState extends State<ScheduleWriteScreen> {
                     fontFamily: 'bold',
                   ),
                 ),
-                const SizedBox(
+                SizedBox(
                   height: 35,
                   child: TextField(
+                    controller: ctrl.titleController,
                     cursorColor: Colors.black,
                     cursorHeight: 16,
-                    style: TextStyle(
+                    style: const TextStyle(
                       fontFamily: 'semiBold',
                       fontSize: 14,
                     ),
-                    decoration: InputDecoration(
+                    decoration: const InputDecoration(
                       border: InputBorder.none,
                       contentPadding: EdgeInsets.zero,
                       hintText: '활동 제목을 입력하세요.',
@@ -105,16 +106,17 @@ class _ScheduleWriteScreenState extends State<ScheduleWriteScreen> {
                     fontFamily: 'bold',
                   ),
                 ),
-                const SizedBox(
+                SizedBox(
                   height: 30,
                   child: TextField(
+                    controller: ctrl.locationController,
                     cursorColor: Colors.black,
                     cursorHeight: 16,
-                    style: TextStyle(
+                    style: const TextStyle(
                       fontFamily: 'semiBold',
                       fontSize: 14,
                     ),
-                    decoration: InputDecoration(
+                    decoration: const InputDecoration(
                       contentPadding: EdgeInsets.only(bottom: 10),
                       border: InputBorder.none,
                       hintText: '예시) 합정역 8번 출구, 관악산 서울대 입구 매표소',
@@ -187,6 +189,7 @@ class _ScheduleWriteScreenState extends State<ScheduleWriteScreen> {
                     );
                     if (result != null) {
                       setState(() => date = result);
+                      print('shin >>>> $date');
                     }
                   },
                 ),
@@ -210,24 +213,25 @@ class _ScheduleWriteScreenState extends State<ScheduleWriteScreen> {
                 ),
                 const SizedBox(height: 10),
 
-                const SizedBox(
+                SizedBox(
                   height: 120,
                   // Expanded는 Column, Row, Flex 위젯 내에서만 사용 가능.
                   child: Column(
                     children: [
                       Expanded(
                         child: TextField(
+                          controller: ctrl.introduceController,
                           cursorColor: Colors.black,
                           cursorHeight: 16,
-                          style: TextStyle(
+                          style: const TextStyle(
                             fontFamily: 'semiBold',
                             fontSize: 14,
                           ),
-                          textAlignVertical: TextAlignVertical(y: -1),
+                          textAlignVertical: const TextAlignVertical(y: -1),
                           expands: true,
                           keyboardType: TextInputType.multiline,
                           maxLines: null,
-                          decoration: InputDecoration(
+                          decoration: const InputDecoration(
                             contentPadding: EdgeInsets.all(15),
                             hintText:
                                 '예시) 수락산에서 플로깅 할 예정이에요. \n텀블러, 장갑, 손수건을 챙겨와 주세요. \n일정 및 준비물 상세 내용을 써주세요 :)',
@@ -277,11 +281,8 @@ class _ScheduleWriteScreenState extends State<ScheduleWriteScreen> {
                   ),
                   onTap: () async {
                     /// TODO 개설 기능 추가
-                    await FirebaseFirestore.instance
-                        .collection('active')
-                        .add({'title': 'shin'});
-
-                    // Navigator.pop(context);
+                    ctrl.scheduleWrite();
+                    Navigator.pop(context);
                   },
                 ),
               ],

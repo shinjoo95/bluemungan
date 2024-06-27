@@ -14,12 +14,6 @@ class _ImageSelectListviewState extends State<ImageSelectListview> {
   final ctrl = Get.put(FeedController());
 
   @override
-  void dispose() {
-    ctrl.clearWriteParameters();
-    super.dispose();
-  }
-
-  @override
   Widget build(BuildContext context) {
     return Obx(() {
       if (ctrl.pickedImagesList.isEmpty) {

@@ -19,6 +19,11 @@ class FeedController extends GetxController {
   String date = '';
   String review = '';
 
+  @override
+  void onInit() {
+    super.onInit();
+  }
+
   // 이미지 선택
   void getMultiImage() async {
     final List<XFile>? images = await picker.pickMultiImage();
@@ -31,23 +36,17 @@ class FeedController extends GetxController {
   // 피드 작성 파라미터 초기화
   void clearWriteParameters() {
     pickedImagesList.clear();
-  }
-
-  Future<void> writeFeed({
-    required String feedTitle,
-  }) async {
-    FirebaseFirestore firestore = FirebaseFirestore.instance;
-    await firestore.collection('feed').doc().set({
-      'title': feedTitle,
-    });
-    print('shin >>>> controller : $feedTitle');
+    title = '';
+    totalWeight = '';
+    date = '';
+    review = '';
   }
 
   void feedWrite() {
-    //"user@email.com" 컬렉션에 {userText:유저가 입력한 텍스트} 문서 추가!
     FirebaseFirestore.instance
-        .collection('feed')
-        .add({
+        .collection('feeds')
+        .doc()
+        .set({
           'title': titleController.text,
           'totalWeight': totalWeightController.text,
           'date': date,

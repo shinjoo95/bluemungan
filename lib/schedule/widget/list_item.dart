@@ -6,6 +6,7 @@ class ListItem extends StatelessWidget {
   final String imageUrl;
   final String title;
   final String mainTime;
+  final String introduce;
   final String subTime;
   final String location;
   final int? member;
@@ -14,6 +15,7 @@ class ListItem extends StatelessWidget {
     super.key,
     required this.imageUrl,
     required this.title,
+    required this.introduce,
     required this.mainTime,
     required this.subTime,
     required this.location,
@@ -27,7 +29,12 @@ class ListItem extends StatelessWidget {
         Navigator.push(
           context,
           MaterialPageRoute(
-            builder: (context) => const ScheduleDetailScreen(),
+            builder: (context) => ScheduleDetailScreen(
+              date: '6월 30일',
+              title: title,
+              introduce: introduce,
+              location: location,
+            ),
           ),
         );
       },

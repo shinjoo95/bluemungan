@@ -17,7 +17,7 @@ class _FeedListviewState extends State<FeedListview> {
     final ctrl = Get.find<FeedController>();
 
     final Stream<QuerySnapshot> feedStream =
-        FirebaseFirestore.instance.collection('feed').snapshots();
+        FirebaseFirestore.instance.collection('feeds').snapshots();
 
     return Expanded(
       child: StreamBuilder(

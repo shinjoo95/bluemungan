@@ -10,7 +10,9 @@ class LoginScreen extends StatelessWidget {
     final ctrl = Get.put(LoginController());
 
     return Scaffold(
-      appBar: AppBar(),
+      appBar: AppBar(
+        backgroundColor: Colors.white,
+      ),
       backgroundColor: Colors.white,
       body: Container(
         padding: const EdgeInsets.symmetric(horizontal: 32),

@@ -1,3 +1,4 @@
+import 'package:bluemungan/common/widgets/boundary.dart';
 import 'package:bluemungan/my/widget/participated_list_item.dart';
 import 'package:flutter/material.dart';
 
@@ -10,7 +11,23 @@ class ParticipatedInfo extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
-          '활동 기록',
+          '예정된 활동',
+          style: TextStyle(
+            fontSize: 17,
+            fontFamily: 'bold',
+          ),
+        ),
+        SizedBox(height: 5),
+        ParticipatedListItem(
+          title: '도심 플로깅 할 사람!',
+          imageUrl: 'assets/city_img.png',
+          mainTime: '6/22 토',
+          subTime: '6월 22일 토요일 13시',
+          location: '홍대입구역',
+        ),
+        Boundary(),
+        Text(
+          '최근 활동 기록',
           style: TextStyle(
             fontSize: 17,
             fontFamily: 'bold',

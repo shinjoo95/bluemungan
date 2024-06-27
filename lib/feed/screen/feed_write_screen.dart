@@ -18,6 +18,12 @@ class _FeedWriteScreenState extends State<FeedWriteScreen> {
   final ctrl = Get.find<FeedController>();
 
   @override
+  void dispose() {
+    ctrl.clearWriteParameters();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
@@ -187,11 +193,33 @@ class _FeedWriteScreenState extends State<FeedWriteScreen> {
                   ),
                 ),
                 const SizedBox(height: 5),
-                const Text(
-                  '상세한 후기를 적어주세요.',
-                  style: TextStyle(
-                    fontSize: 13,
-                    fontFamily: 'semiBold',
+
+                RichText(
+                  text: TextSpan(
+                    children: [
+                      const TextSpan(
+                        text: '상세한 후기를 적어주세요.',
+                        style: TextStyle(
+                          color: Colors.black,
+                          fontSize: 13,
+                          fontFamily: 'semiBold',
+                          letterSpacing: 0.16,
+                        ),
+                      ),
+                      const WidgetSpan(
+                        child: SizedBox(
+                          width: 3,
+                        ),
+                      ),
+                      TextSpan(
+                        text: '(최대 8줄)',
+                        style: TextStyle(
+                          color: Colors.grey[600],
+                          fontSize: 13,
+                          fontFamily: 'semiBold',
+                        ),
+                      ),
+                    ],
                   ),
                 ),
                 const SizedBox(height: 10),
@@ -265,6 +293,7 @@ class _FeedWriteScreenState extends State<FeedWriteScreen> {
                   ),
                   onTap: () {
                     ctrl.feedWrite();
+                    ctrl.clearWriteParameters();
                     Navigator.pop(context);
                   },
                 ),

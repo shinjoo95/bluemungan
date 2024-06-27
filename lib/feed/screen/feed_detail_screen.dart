@@ -23,7 +23,7 @@ class FeedDetailScreen extends StatelessWidget {
         surfaceTintColor: Colors.transparent,
         backgroundColor: Colors.transparent,
         title: Text(
-          '$date 활동 내용',
+          date,
           style: const TextStyle(
             fontSize: 18,
             fontFamily: 'bold',
@@ -117,13 +117,23 @@ class FeedDetailScreen extends StatelessWidget {
                   ),
                   const SizedBox(height: 15),
                   Container(
-                    height: 200,
+                    padding: const EdgeInsets.all(10),
+                    height: 230,
+                    width: Get.width,
                     decoration: BoxDecoration(
                       border: Border.all(
                         color: Colors.grey,
                         width: 1,
                       ),
                       borderRadius: BorderRadius.circular(5),
+                    ),
+                    child: Text(
+                      review,
+                      style: const TextStyle(
+                        fontFamily: 'semibold',
+                        fontSize: 17,
+                        height: 1.5,
+                      ),
                     ),
                   ),
                 ],

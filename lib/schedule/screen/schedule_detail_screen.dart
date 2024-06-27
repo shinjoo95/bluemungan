@@ -3,7 +3,18 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class ScheduleDetailScreen extends StatelessWidget {
-  const ScheduleDetailScreen({super.key});
+  final String title;
+  final String date;
+  final String location;
+  final String introduce;
+
+  const ScheduleDetailScreen({
+    super.key,
+    required this.title,
+    required this.date,
+    required this.location,
+    required this.introduce,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -40,9 +51,9 @@ class ScheduleDetailScreen extends StatelessWidget {
               Container(
                 height: 35,
                 alignment: Alignment.bottomLeft,
-                child: const Text(
-                  '도심 플로깅 할 사람!',
-                  style: TextStyle(
+                child: Text(
+                  title,
+                  style: const TextStyle(
                     fontFamily: 'bold',
                     fontSize: 17,
                   ),
@@ -93,9 +104,9 @@ class ScheduleDetailScreen extends StatelessWidget {
               Container(
                 height: 35,
                 alignment: Alignment.bottomLeft,
-                child: const Text(
-                  '홍대 입구역 8번 출구',
-                  style: TextStyle(
+                child: Text(
+                  location,
+                  style: const TextStyle(
                     fontFamily: 'bold',
                     fontSize: 17,
                   ),
@@ -161,9 +172,9 @@ class ScheduleDetailScreen extends StatelessWidget {
                   borderRadius: BorderRadius.circular(5),
                 ),
                 // Expanded는 Column, Row, Flex 위젯 내에서만 사용 가능.
-                child: const Text(
-                  '쓰줍 활동 예정입니다 ~\n2\n2\n2\n2\n2',
-                  style: TextStyle(
+                child: Text(
+                  introduce,
+                  style: const TextStyle(
                     fontFamily: 'semiBold',
                     fontSize: 15,
                     height: 1.6,

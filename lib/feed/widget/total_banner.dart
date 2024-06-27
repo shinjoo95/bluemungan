@@ -8,7 +8,7 @@ class TotalBanner extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final ctrl = Get.find<FeedController>();
-    print('shin >>>> count :${ctrl.activeCount}');
+
     return SizedBox(
       width: Get.width,
       height: 61,
