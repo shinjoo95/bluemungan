@@ -67,7 +67,7 @@ class _FeedScreenState extends State<FeedScreen> {
       ),
       body: Container(
         margin: const EdgeInsets.symmetric(horizontal: 20),
-        child: Column(
+        child: const Column(
           children: [
             SizedBox(height: 10),
             TotalBanner(),

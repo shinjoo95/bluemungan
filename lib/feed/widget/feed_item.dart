@@ -5,7 +5,7 @@ import 'package:get/get.dart';
 class FeedItem extends StatelessWidget {
   final String date;
   final String title;
-  final double totalWeight;
+  final String totalWeight;
   final String review;
 
   const FeedItem({
@@ -71,7 +71,7 @@ class FeedItem extends StatelessWidget {
                   ),
                 ),
                 child: Text(
-                  '$date월',
+                  date,
                   style: const TextStyle(
                     color: Colors.black,
                     fontFamily: 'bold',

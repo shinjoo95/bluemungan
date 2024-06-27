@@ -10,12 +10,13 @@ class FeedController extends GetxController {
   final formKey = GlobalKey<FormState>();
   final totalWeightController = TextEditingController();
   final reviewController = TextEditingController();
+  int activeCount = 0;
   TextEditingController titleController = TextEditingController();
 
   String title = '';
-  double totalWeight = 0;
+  String totalWeight = '';
   String imageUrl = '';
-  int date = 0;
+  String date = '';
   String review = '';
 
   // 이미지 선택
@@ -40,6 +41,20 @@ class FeedController extends GetxController {
       'title': feedTitle,
     });
     print('shin >>>> controller : $feedTitle');
+  }
+
+  void feedWrite() {
+    //"user@email.com" 컬렉션에 {userText:유저가 입력한 텍스트} 문서 추가!
+    FirebaseFirestore.instance
+        .collection('feed')
+        .add({
+          'title': titleController.text,
+          'totalWeight': totalWeightController.text,
+          'date': date,
+          'review': reviewController.text,
+        })
+        .then((value) => print("document added")) //잘 들어갔니?
+        .catchError((error) => print("Fail to add doc ${error}")); //에러가 있니?
   }
 
   // void saveFeedEntry() async {

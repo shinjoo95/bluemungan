@@ -1,4 +1,6 @@
+import 'package:bluemungan/feed/controller/feed_controller.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class MonthDropdown extends StatefulWidget {
   const MonthDropdown({super.key});
@@ -8,6 +10,7 @@ class MonthDropdown extends StatefulWidget {
 }
 
 class _MonthDropdownState extends State<MonthDropdown> {
+  final ctrl = Get.find<FeedController>();
   String selectMonth = '';
   final months = [
     '1월',
@@ -55,6 +58,7 @@ class _MonthDropdownState extends State<MonthDropdown> {
       onChanged: (value) {
         setState(() {
           selectMonth = value!;
+          ctrl.date = value;
         });
       },
     );

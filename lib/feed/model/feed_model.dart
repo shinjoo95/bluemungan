@@ -20,13 +20,6 @@ class FeedModel {
           title: json['title'] as String,
           totalWeight: json['totalWeight'] as double,
         );
-  // FeedModel.fromJson(Map<String, dynamic> map, {
-  //   required Map<String, dynamic> json,
-  // })  : title = json['title'],
-  //       date = json['date'] as int,
-  //       // imageUrl = json['imageUrl'],
-  //       totalWeight = json['date'] as double,
-  //       review = json['review'];
 
   Map<String, dynamic> toJson() {
     return {

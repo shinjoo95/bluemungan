@@ -1,9 +1,7 @@
 import 'package:bluemungan/common/widgets/boundary.dart';
 import 'package:bluemungan/feed/controller/feed_controller.dart';
-import 'package:bluemungan/feed/model/feed_model.dart';
 import 'package:bluemungan/feed/widget/image_select_listview.dart';
 import 'package:bluemungan/feed/widget/month_dropdown.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -18,17 +16,9 @@ class FeedWriteScreen extends StatefulWidget {
 
 class _FeedWriteScreenState extends State<FeedWriteScreen> {
   final ctrl = Get.find<FeedController>();
-  final city = <String, String>{
-    "name": "Los Angeles",
-    "state": "CA",
-    "country": "USA"
-  };
 
   @override
   Widget build(BuildContext context) {
-    String feedTitle = '';
-    FirebaseFirestore firestore = FirebaseFirestore.instance;
-
     return GestureDetector(
       onTap: () {
         FocusManager.instance.primaryFocus?.unfocus();
@@ -274,16 +264,8 @@ class _FeedWriteScreenState extends State<FeedWriteScreen> {
                     ),
                   ),
                   onTap: () {
-                    ctrl.writeFeed(feedTitle: '안녕');
-                    print('shin >>>> feedtitle : $feedTitle');
-                    firestore.collection("shin").add(city);
-                    firestore
-                        .collection('collectionPath')
-                        .add({'shin': 'shin '});
-                    // Navigator.pop(context);
-
-                    /// TODO 개설 기능 추가
-                    // ctrl.writeFeed(feedTitle: 'dddd');
+                    ctrl.feedWrite();
+                    Navigator.pop(context);
                   },
                 ),
               ],

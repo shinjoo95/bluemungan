@@ -1,3 +1,4 @@
+import 'package:bluemungan/feed/controller/feed_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -6,6 +7,8 @@ class TotalBanner extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final ctrl = Get.find<FeedController>();
+    print('shin >>>> count :${ctrl.activeCount}');
     return SizedBox(
       width: Get.width,
       height: 61,
@@ -13,17 +16,17 @@ class TotalBanner extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           RichText(
-            text: const TextSpan(
+            text: TextSpan(
               children: [
                 TextSpan(
-                  text: '3',
-                  style: TextStyle(
+                  text: '${ctrl.activeCount}',
+                  style: const TextStyle(
                     color: Colors.blue,
                     fontSize: 25,
                     fontFamily: 'bold',
                   ),
                 ),
-                TextSpan(
+                const TextSpan(
                   text: ' 회의 푸른 활동을 하여',
                   style: TextStyle(
                     color: Colors.black,

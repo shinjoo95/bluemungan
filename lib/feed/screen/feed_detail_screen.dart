@@ -4,7 +4,7 @@ import 'package:get/get.dart';
 class FeedDetailScreen extends StatelessWidget {
   final String date;
   final String title;
-  final double totalWeight;
+  final String totalWeight;
   final String review;
 
   const FeedDetailScreen({
@@ -23,7 +23,7 @@ class FeedDetailScreen extends StatelessWidget {
         surfaceTintColor: Colors.transparent,
         backgroundColor: Colors.transparent,
         title: Text(
-          '$date월',
+          '$date 활동 내용',
           style: const TextStyle(
             fontSize: 18,
             fontFamily: 'bold',
