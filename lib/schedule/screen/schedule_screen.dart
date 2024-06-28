@@ -169,3 +169,8 @@ class _ScheduleScreenState extends State<ScheduleScreen> {
     );
   }
 }
+/// TODO Firestore 데이터 확인
+/// TODO 삭제 기능 추가
+/// TODO 이미지 storage 저장
+/// TODO textField 유효성 추가
+/// TODO 활동 피드 TopBanner 불러오기 
