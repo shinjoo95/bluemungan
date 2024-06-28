@@ -42,8 +42,12 @@ class ListItem extends StatelessWidget {
         margin: const EdgeInsets.fromLTRB(16, 13, 16, 13),
         padding: const EdgeInsets.fromLTRB(16, 11, 16, 11),
         decoration: BoxDecoration(
+          border: Border.all(
+            width: 1,
+            color: Colors.cyan,
+          ),
           borderRadius: BorderRadius.circular(10),
-          color: Colors.grey[100],
+          color: Colors.grey[50],
           boxShadow: [
             BoxShadow(
               color: Colors.grey.withOpacity(0.2),
@@ -54,7 +58,7 @@ class ListItem extends StatelessWidget {
           ],
         ),
         width: Get.width,
-        height: 154,
+        height: 155,
         // 데이터 연동 예정
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -62,8 +66,9 @@ class ListItem extends StatelessWidget {
             Text(
               mainTime,
               style: const TextStyle(
-                fontSize: 17,
+                fontSize: 16,
                 fontFamily: 'bold',
+                color: Colors.red,
               ),
             ),
             const SizedBox(height: 5),
@@ -74,7 +79,7 @@ class ListItem extends StatelessWidget {
               child: Text(
                 title,
                 style: const TextStyle(
-                  fontSize: 17,
+                  fontSize: 15,
                   fontFamily: 'bold',
                 ),
                 overflow: TextOverflow.ellipsis,
@@ -104,6 +109,7 @@ class ListItem extends StatelessWidget {
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
+                    const SizedBox(height: 5),
                     // 일시
                     RichText(
                       text: TextSpan(
@@ -125,7 +131,7 @@ class ListItem extends StatelessWidget {
                             text: subTime,
                             style: const TextStyle(
                               color: Colors.black,
-                              fontSize: 15,
+                              fontSize: 13,
                               fontFamily: 'semiBold',
                             ),
                           ),
@@ -154,7 +160,7 @@ class ListItem extends StatelessWidget {
                             text: location,
                             style: const TextStyle(
                               color: Colors.black,
-                              fontSize: 15,
+                              fontSize: 13,
                               fontFamily: 'semiBold',
                             ),
                           ),
@@ -182,7 +188,7 @@ class ListItem extends StatelessWidget {
                             text: '3명 참여중',
                             style: TextStyle(
                               color: Colors.black,
-                              fontSize: 15,
+                              fontSize: 13,
                               fontFamily: 'semiBold',
                             ),
                           ),

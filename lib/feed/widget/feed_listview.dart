@@ -51,6 +51,7 @@ class _FeedListviewState extends State<FeedListview> {
                 date: data['date'] ?? '',
                 title: data['title'] ?? '',
                 totalWeight: data['totalWeight'] ?? '',
+                people: data['people'] ?? '',
               );
             }).toList(),
           );

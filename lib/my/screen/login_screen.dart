@@ -94,8 +94,8 @@ Widget _loginBotton({
                 title,
                 style: TextStyle(
                   color: textColor ?? Colors.black,
-                  fontSize: 16,
-                  fontWeight: FontWeight.bold,
+                  fontSize: 15,
+                  fontFamily: 'bold',
                 ),
               ),
             ],

@@ -45,8 +45,9 @@ class ParticipatedListItem extends StatelessWidget {
           Text(
             mainTime,
             style: const TextStyle(
-              fontSize: 17,
+              fontSize: 16,
               fontFamily: 'bold',
+              color: Colors.red,
             ),
           ),
           const SizedBox(height: 5),
@@ -57,7 +58,7 @@ class ParticipatedListItem extends StatelessWidget {
             child: Text(
               title,
               style: const TextStyle(
-                fontSize: 17,
+                fontSize: 15,
                 fontFamily: 'bold',
               ),
               overflow: TextOverflow.ellipsis,
@@ -87,6 +88,7 @@ class ParticipatedListItem extends StatelessWidget {
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
+                  const SizedBox(height: 5),
                   // 일시
                   RichText(
                     text: TextSpan(
@@ -108,7 +110,7 @@ class ParticipatedListItem extends StatelessWidget {
                           text: subTime,
                           style: const TextStyle(
                             color: Colors.black,
-                            fontSize: 15,
+                            fontSize: 13,
                             fontFamily: 'semiBold',
                           ),
                         ),
@@ -137,7 +139,7 @@ class ParticipatedListItem extends StatelessWidget {
                           text: location,
                           style: const TextStyle(
                             color: Colors.black,
-                            fontSize: 15,
+                            fontSize: 13,
                             fontFamily: 'semiBold',
                           ),
                         ),
@@ -165,7 +167,7 @@ class ParticipatedListItem extends StatelessWidget {
                           text: '3명 참여중',
                           style: TextStyle(
                             color: Colors.black,
-                            fontSize: 15,
+                            fontSize: 13,
                             fontFamily: 'semiBold',
                           ),
                         ),

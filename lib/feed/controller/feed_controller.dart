@@ -7,16 +7,13 @@ import 'package:image_picker/image_picker.dart';
 class FeedController extends GetxController {
   final ImagePicker picker = ImagePicker();
   final RxList<XFile> pickedImagesList = List<XFile>.empty().obs;
-  final totalWeightController = TextEditingController();
-  final reviewController = TextEditingController();
-  int activeCount = 0;
   TextEditingController titleController = TextEditingController();
-
-  String title = '';
-  String totalWeight = '';
-  String imageUrl = '';
+  TextEditingController totalWeightController = TextEditingController();
+  TextEditingController peopleController = TextEditingController();
+  TextEditingController reviewController = TextEditingController();
+  int activeCount = 0;
+  final GlobalKey<FormState> formKey = GlobalKey();
   String date = '';
-  String review = '';
 
   @override
   void onInit() {
@@ -35,10 +32,11 @@ class FeedController extends GetxController {
   // 피드 작성 파라미터 초기화
   void clearWriteParameters() {
     pickedImagesList.clear();
-    title = '';
-    totalWeight = '';
+    titleController = TextEditingController();
+    peopleController = TextEditingController();
+    totalWeightController = TextEditingController();
+    reviewController = TextEditingController();
     date = '';
-    review = '';
   }
 
   void feedWrite() {
@@ -50,8 +48,13 @@ class FeedController extends GetxController {
           'totalWeight': totalWeightController.text,
           'date': date,
           'review': reviewController.text,
+          'people': peopleController.text,
         })
         .then((value) => print("document added")) //잘 들어갔니?
         .catchError((error) => print("Fail to add doc ${error}")); //에러가 있니?
+  }
+
+  void feedDelete() {
+    FirebaseFirestore.instance.collection('feeds').doc().delete();
   }
 }

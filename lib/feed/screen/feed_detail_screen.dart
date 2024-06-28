@@ -1,3 +1,4 @@
+import 'package:bluemungan/feed/controller/feed_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -6,6 +7,7 @@ class FeedDetailScreen extends StatelessWidget {
   final String title;
   final String totalWeight;
   final String review;
+  final String people;
 
   const FeedDetailScreen({
     super.key,
@@ -13,10 +15,12 @@ class FeedDetailScreen extends StatelessWidget {
     required this.totalWeight,
     required this.review,
     required this.title,
+    required this.people,
   });
 
   @override
   Widget build(BuildContext context) {
+    // final ctrl = Get.find<FeedController>();
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
@@ -49,16 +53,19 @@ class FeedDetailScreen extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   SizedBox(
-                    height: 30,
+                    width: Get.width,
+                    height: 50,
                     child: Text(
                       title,
                       style: const TextStyle(
                         fontFamily: 'bold',
-                        fontSize: 20,
+                        fontSize: 17,
+                        overflow: TextOverflow.ellipsis,
                       ),
+                      maxLines: 2,
                     ),
                   ),
-                  const SizedBox(height: 10),
+                  const SizedBox(height: 7),
                   RichText(
                     text: TextSpan(
                       children: [
@@ -105,7 +112,7 @@ class FeedDetailScreen extends StatelessWidget {
                           ),
                         ),
                         TextSpan(
-                          text: '신주용 김기원 권하연 김혜원 채지원 김현정',
+                          text: people,
                           style: TextStyle(
                             color: Colors.cyan[600],
                             fontSize: 15,
@@ -131,9 +138,11 @@ class FeedDetailScreen extends StatelessWidget {
                       review,
                       style: const TextStyle(
                         fontFamily: 'semibold',
-                        fontSize: 17,
-                        height: 1.5,
+                        fontSize: 15,
+                        height: 1.3,
+                        overflow: TextOverflow.ellipsis,
                       ),
+                      maxLines: 10,
                     ),
                   ),
                 ],

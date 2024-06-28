@@ -25,7 +25,7 @@ class ParticipatedInfo extends StatelessWidget {
           subTime: '6월 22일 토요일 13시',
           location: '홍대입구역',
         ),
-        Boundary(),
+        Boundary(marginBottom: 15),
         Text(
           '최근 활동 기록',
           style: TextStyle(

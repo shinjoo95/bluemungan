@@ -7,6 +7,7 @@ class FeedItem extends StatelessWidget {
   final String title;
   final String totalWeight;
   final String review;
+  final String people;
 
   const FeedItem({
     super.key,
@@ -14,6 +15,7 @@ class FeedItem extends StatelessWidget {
     required this.totalWeight,
     required this.review,
     required this.title,
+    required this.people,
   });
 
   @override
@@ -28,6 +30,7 @@ class FeedItem extends StatelessWidget {
               review: review,
               title: title,
               totalWeight: totalWeight,
+              people: people,
             ),
           ),
         );

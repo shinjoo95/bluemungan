@@ -26,8 +26,6 @@ class _FeedWriteScreenState extends State<FeedWriteScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final GlobalKey<FormState> formKey = GlobalKey();
-
     return GestureDetector(
       onTap: () {
         FocusManager.instance.primaryFocus?.unfocus();
@@ -47,7 +45,7 @@ class _FeedWriteScreenState extends State<FeedWriteScreen> {
         ),
         body: SingleChildScrollView(
           child: Form(
-            key: formKey,
+            key: ctrl.formKey,
             child: Container(
               margin: const EdgeInsets.symmetric(horizontal: 20),
               child: Column(
@@ -66,13 +64,13 @@ class _FeedWriteScreenState extends State<FeedWriteScreen> {
                     height: 35,
                     child: TextFormField(
                       key: const ValueKey(1),
-                      // validator: (value) {
-                      //   if (value!.isEmpty) {
-
-                      //   } else {
-                      //     return null;
-                      //   }
-                      // },
+                      validator: (value) {
+                        if (value!.isEmpty) {
+                          return '';
+                        } else {
+                          return null;
+                        }
+                      },
                       controller: ctrl.titleController,
                       cursorColor: Colors.black,
                       cursorHeight: 16,
@@ -89,11 +87,44 @@ class _FeedWriteScreenState extends State<FeedWriteScreen> {
                           fontSize: 14,
                         ),
                       ),
-                      onChanged: (value) {
-                        setState(() {
-                          ctrl.title = value;
-                        });
+                    ),
+                  ),
+                  const Boundary(marginBottom: 20),
+
+                  const Text(
+                    '활동 인원',
+                    style: TextStyle(
+                      fontSize: 17,
+                      fontFamily: 'bold',
+                    ),
+                  ),
+                  SizedBox(
+                    height: 35,
+                    child: TextFormField(
+                      key: const ValueKey(2),
+                      validator: (value) {
+                        if (value!.isEmpty) {
+                          return '';
+                        } else {
+                          return null;
+                        }
                       },
+                      controller: ctrl.peopleController,
+                      cursorColor: Colors.black,
+                      cursorHeight: 16,
+                      style: const TextStyle(
+                        fontFamily: 'semiBold',
+                        fontSize: 14,
+                      ),
+                      decoration: const InputDecoration(
+                        border: InputBorder.none,
+                        contentPadding: EdgeInsets.zero,
+                        hintText: '쉼표나 띄어쓰기로 구분 ex) 신주용 김기원 권하연 ',
+                        hintStyle: TextStyle(
+                          fontFamily: 'semibold',
+                          fontSize: 14,
+                        ),
+                      ),
                     ),
                   ),
                   const Boundary(marginBottom: 20),
@@ -126,12 +157,11 @@ class _FeedWriteScreenState extends State<FeedWriteScreen> {
                       ),
                       const SizedBox(width: 30),
                       Container(
-                        margin: const EdgeInsets.only(bottom: 3),
-                        // height: 35,
-                        // color: Colors.cyan,
+                        margin: const EdgeInsets.only(bottom: 10),
+                        height: 35,
                         width: 80,
                         child: TextFormField(
-                          key: const ValueKey(2),
+                          key: const ValueKey(3),
                           controller: ctrl.totalWeightController,
                           cursorColor: Colors.black,
                           cursorHeight: 16,
@@ -141,7 +171,7 @@ class _FeedWriteScreenState extends State<FeedWriteScreen> {
                           ),
                           validator: (value) {
                             if (value!.isEmpty) {
-                              return '무게를 입력하세요';
+                              return '';
                             } else {
                               return null;
                             }
@@ -240,7 +270,7 @@ class _FeedWriteScreenState extends State<FeedWriteScreen> {
                           ),
                         ),
                         TextSpan(
-                          text: '(최대 8줄)',
+                          text: '(최대 10줄)',
                           style: TextStyle(
                             color: Colors.grey[600],
                             fontSize: 13,
@@ -259,10 +289,10 @@ class _FeedWriteScreenState extends State<FeedWriteScreen> {
                       children: [
                         Expanded(
                           child: TextFormField(
-                            key: const ValueKey(3),
+                            key: const ValueKey(4),
                             validator: (value) {
                               if (value!.isEmpty) {
-                                return '내용을 입력하세요';
+                                return '';
                               } else {
                                 return null;
                               }
@@ -328,10 +358,16 @@ class _FeedWriteScreenState extends State<FeedWriteScreen> {
                       ),
                     ),
                     onTap: () {
-                      if (formKey.currentState!.validate()) {
+                      if (ctrl.formKey.currentState!.validate()) {
                         ctrl.feedWrite();
                         ctrl.clearWriteParameters();
                         Navigator.pop(context);
+                      } else {
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          const SnackBar(
+                            content: Text('다 입력하세요'),
+                          ),
+                        );
                       }
                     },
                   ),
