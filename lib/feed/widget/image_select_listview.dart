@@ -11,15 +11,15 @@ class ImageSelectListview extends StatefulWidget {
 }
 
 class _ImageSelectListviewState extends State<ImageSelectListview> {
-  final ctrl = Get.put(FeedController());
+  final _ctrl = Get.put(FeedController());
 
   @override
   Widget build(BuildContext context) {
     return Obx(() {
-      if (ctrl.pickedImagesList.isEmpty) {
+      if (_ctrl.pickedImagesList.isEmpty) {
         return GestureDetector(
           onTap: () {
-            ctrl.getMultiImage();
+            _ctrl.getMultiImage();
           },
           child: Container(
             height: 80,
@@ -59,7 +59,7 @@ class _ImageSelectListviewState extends State<ImageSelectListview> {
           child: ListView.separated(
             shrinkWrap: true,
             // physics: const ClampingScrollPhysics(),
-            itemCount: ctrl.pickedImagesList.length,
+            itemCount: _ctrl.pickedImagesList.length,
             scrollDirection: Axis.horizontal,
             itemBuilder: (context, index) {
               return SizedBox(
@@ -71,7 +71,7 @@ class _ImageSelectListviewState extends State<ImageSelectListview> {
                       child: ClipRRect(
                         borderRadius: BorderRadius.circular(3),
                         child: Image.file(
-                          File(ctrl.pickedImagesList[index].path),
+                          File(_ctrl.pickedImagesList[index].path),
                           fit: BoxFit.cover,
                         ),
                       ),
@@ -82,8 +82,8 @@ class _ImageSelectListviewState extends State<ImageSelectListview> {
                       child: GestureDetector(
                         onTap: () {
                           setState(() {
-                            ctrl.pickedImagesList
-                                .remove(ctrl.pickedImagesList[index]);
+                            _ctrl.pickedImagesList
+                                .remove(_ctrl.pickedImagesList[index]);
                           });
                         },
                         child: const Icon(

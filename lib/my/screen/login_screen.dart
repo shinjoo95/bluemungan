@@ -7,7 +7,7 @@ class LoginScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final ctrl = Get.put(LoginController());
+    final _ctrl = Get.put(LoginController());
 
     return Scaffold(
       appBar: AppBar(
@@ -31,7 +31,7 @@ class LoginScreen extends StatelessWidget {
               textColor: Colors.black,
               buttonColor: const Color(0xffffde00),
               onTap: () {
-                ctrl.loginWithKakao();
+                _ctrl.loginWithKakao();
               },
             ),
             // _loginBotton(
@@ -49,7 +49,7 @@ class LoginScreen extends StatelessWidget {
               textColor: Colors.black,
               buttonColor: Colors.grey[300],
               onTap: () {
-                ctrl.loginWithGoogle();
+                _ctrl.loginWithGoogle();
               },
             ),
           ],

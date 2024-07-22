@@ -10,9 +10,9 @@ class MonthDropdown extends StatefulWidget {
 }
 
 class _MonthDropdownState extends State<MonthDropdown> {
-  final ctrl = Get.find<FeedController>();
-  String selectMonth = '';
-  final months = [
+  final _ctrl = Get.find<FeedController>();
+  String _selectMonth = '';
+  final _months = [
     '1월',
     '2월',
     '3월',
@@ -30,7 +30,7 @@ class _MonthDropdownState extends State<MonthDropdown> {
   void initState() {
     super.initState();
     setState(() {
-      selectMonth = months[0];
+      _selectMonth = _months[0];
     });
   }
 
@@ -44,12 +44,12 @@ class _MonthDropdownState extends State<MonthDropdown> {
       ),
       dropdownColor: Colors.grey[200],
       isDense: false,
-      value: selectMonth,
+      value: _selectMonth,
       underline: Container(
         height: 2,
         color: Colors.cyan,
       ),
-      items: months
+      items: _months
           .map((e) => DropdownMenuItem(
                 value: e, // 선택 시 onChanged 를 통해 반환할 value
                 child: Text(e),
@@ -57,8 +57,8 @@ class _MonthDropdownState extends State<MonthDropdown> {
           .toList(),
       onChanged: (value) {
         setState(() {
-          selectMonth = value!;
-          ctrl.date = value;
+          _selectMonth = value!;
+          _ctrl.date = value;
         });
       },
     );

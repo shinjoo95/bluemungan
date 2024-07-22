@@ -7,7 +7,7 @@ class TotalBanner extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final ctrl = Get.find<FeedController>();
+    final _ctrl = Get.find<FeedController>();
 
     return SizedBox(
       width: Get.width,
@@ -19,7 +19,7 @@ class TotalBanner extends StatelessWidget {
             text: TextSpan(
               children: [
                 TextSpan(
-                  text: '${ctrl.activeCount}',
+                  text: '${_ctrl.activeCount}',
                   style: const TextStyle(
                     color: Colors.blue,
                     fontSize: 25,

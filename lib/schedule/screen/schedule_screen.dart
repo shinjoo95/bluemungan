@@ -30,7 +30,7 @@ class _ScheduleScreenState extends State<ScheduleScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final ctrl = Get.put(ScheduleController());
+    final _ctrl = Get.put(ScheduleController());
 
     return Scaffold(
       backgroundColor: Colors.white,
@@ -73,7 +73,7 @@ class _ScheduleScreenState extends State<ScheduleScreen> {
           Container(
             margin: const EdgeInsets.symmetric(horizontal: 16),
             child: TabBar(
-              controller: ctrl.tabCtrl,
+              controller: _ctrl.tabCtrl,
               labelColor: Colors.blue,
               unselectedLabelColor: Colors.grey[500],
               dividerHeight: 1,
@@ -93,10 +93,10 @@ class _ScheduleScreenState extends State<ScheduleScreen> {
           ),
           Expanded(
             child: TabBarView(
-              controller: ctrl.tabCtrl,
+              controller: _ctrl.tabCtrl,
               children: [
                 // 예정된 활동
-                _planScheduleView(ctrl: ctrl),
+                _planScheduleView(ctrl: _ctrl),
                 _completedScheduleView(),
                 // 지난 활동
               ],

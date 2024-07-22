@@ -16,11 +16,11 @@ class FeedWriteScreen extends StatefulWidget {
 }
 
 class _FeedWriteScreenState extends State<FeedWriteScreen> {
-  final ctrl = Get.find<FeedController>();
+  final _ctrl = Get.find<FeedController>();
 
   @override
   void dispose() {
-    ctrl.clearWriteParameters();
+    _ctrl.clearWriteParameters();
     super.dispose();
   }
 
@@ -45,7 +45,7 @@ class _FeedWriteScreenState extends State<FeedWriteScreen> {
         ),
         body: SingleChildScrollView(
           child: Form(
-            key: ctrl.formKey,
+            key: _ctrl.formKey,
             child: Container(
               margin: const EdgeInsets.symmetric(horizontal: 20),
               child: Column(
@@ -71,7 +71,7 @@ class _FeedWriteScreenState extends State<FeedWriteScreen> {
                           return null;
                         }
                       },
-                      controller: ctrl.titleController,
+                      controller: _ctrl.titleController,
                       cursorColor: Colors.black,
                       cursorHeight: 16,
                       style: const TextStyle(
@@ -109,7 +109,7 @@ class _FeedWriteScreenState extends State<FeedWriteScreen> {
                           return null;
                         }
                       },
-                      controller: ctrl.peopleController,
+                      controller: _ctrl.peopleController,
                       cursorColor: Colors.black,
                       cursorHeight: 16,
                       style: const TextStyle(
@@ -162,7 +162,7 @@ class _FeedWriteScreenState extends State<FeedWriteScreen> {
                         width: 80,
                         child: TextFormField(
                           key: const ValueKey(3),
-                          controller: ctrl.totalWeightController,
+                          controller: _ctrl.totalWeightController,
                           cursorColor: Colors.black,
                           cursorHeight: 16,
                           style: const TextStyle(
@@ -297,7 +297,7 @@ class _FeedWriteScreenState extends State<FeedWriteScreen> {
                                 return null;
                               }
                             },
-                            controller: ctrl.reviewController,
+                            controller: _ctrl.reviewController,
                             cursorColor: Colors.black,
                             cursorHeight: 16,
                             style: const TextStyle(
@@ -358,9 +358,9 @@ class _FeedWriteScreenState extends State<FeedWriteScreen> {
                       ),
                     ),
                     onTap: () {
-                      if (ctrl.formKey.currentState!.validate()) {
-                        ctrl.feedWrite();
-                        ctrl.clearWriteParameters();
+                      if (_ctrl.formKey.currentState!.validate()) {
+                        _ctrl.feedWrite();
+                        _ctrl.clearWriteParameters();
                         Navigator.pop(context);
                       } else {
                         ScaffoldMessenger.of(context).showSnackBar(

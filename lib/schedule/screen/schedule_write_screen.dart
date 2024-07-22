@@ -19,7 +19,7 @@ class _ScheduleWriteScreenState extends State<ScheduleWriteScreen> {
   DateTime date = DateTime.now();
   @override
   Widget build(BuildContext context) {
-    final ctrl = Get.find<ScheduleController>();
+    final _ctrl = Get.find<ScheduleController>();
     return GestureDetector(
       onTap: () {
         FocusManager.instance.primaryFocus?.unfocus();
@@ -55,7 +55,7 @@ class _ScheduleWriteScreenState extends State<ScheduleWriteScreen> {
                 SizedBox(
                   height: 35,
                   child: TextField(
-                    controller: ctrl.titleController,
+                    controller: _ctrl.titleController,
                     cursorColor: Colors.black,
                     cursorHeight: 16,
                     style: const TextStyle(
@@ -85,7 +85,7 @@ class _ScheduleWriteScreenState extends State<ScheduleWriteScreen> {
                   ),
                 ),
                 const SizedBox(height: 10),
-                selectImage(ctrl: ctrl),
+                selectImage(ctrl: _ctrl),
 
                 const Boundary(
                   marginBottom: 20,
@@ -101,7 +101,7 @@ class _ScheduleWriteScreenState extends State<ScheduleWriteScreen> {
                 SizedBox(
                   height: 30,
                   child: TextField(
-                    controller: ctrl.locationController,
+                    controller: _ctrl.locationController,
                     cursorColor: Colors.black,
                     cursorHeight: 16,
                     style: const TextStyle(
@@ -212,7 +212,7 @@ class _ScheduleWriteScreenState extends State<ScheduleWriteScreen> {
                     children: [
                       Expanded(
                         child: TextField(
-                          controller: ctrl.introduceController,
+                          controller: _ctrl.introduceController,
                           cursorColor: Colors.black,
                           cursorHeight: 16,
                           style: const TextStyle(
@@ -273,7 +273,7 @@ class _ScheduleWriteScreenState extends State<ScheduleWriteScreen> {
                   ),
                   onTap: () async {
                     /// TODO 개설 기능 추가
-                    ctrl.scheduleWrite();
+                    _ctrl.scheduleWrite();
                     Navigator.pop(context);
                   },
                 ),
