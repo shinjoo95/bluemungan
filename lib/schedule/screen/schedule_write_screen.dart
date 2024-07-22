@@ -85,15 +85,7 @@ class _ScheduleWriteScreenState extends State<ScheduleWriteScreen> {
                   ),
                 ),
                 const SizedBox(height: 10),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    selectImage(image: 'assets/mount_img.png'),
-                    selectImage(image: 'assets/city_img.png'),
-                    selectImage(image: 'assets/sea_img.png'),
-                    selectImage(image: 'assets/upcycle_img.png'),
-                  ],
-                ),
+                selectImage(ctrl: ctrl),
 
                 const Boundary(
                   marginBottom: 20,
@@ -294,33 +286,46 @@ class _ScheduleWriteScreenState extends State<ScheduleWriteScreen> {
   }
 
   Widget selectImage({
-    required String image,
+    required ScheduleController ctrl,
   }) {
-    // final ctrl = Get.put(ScheduleController());
-
     return Column(
       children: [
-        InkWell(
-          child: Container(
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(10),
-              border: Border.all(
-                color: Colors.black,
-                width: 1,
-              ),
-            ),
-            child: ClipRRect(
-              borderRadius: BorderRadius.circular(10),
-              child: Image.asset(
-                image,
-                width: 75,
-                height: 75,
-                fit: BoxFit.cover,
-              ),
-            ),
-          ),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: ctrl.activeImages.map((imageUrl) {
+            return Obx(() {
+              int _index = ctrl.activeImages.indexOf(imageUrl);
+              return GestureDetector(
+                child: Container(
+                  decoration: BoxDecoration(
+                    border: Border.all(
+                      color: ctrl.selectedIndex.value == _index
+                          ? Colors.redAccent
+                          : Colors.white,
+                      width: 2,
+                    ),
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.circular(10),
+                    child: Image.asset(
+                      imageUrl,
+                      width: 75,
+                      height: 75,
+                      fit: BoxFit.fill,
+                    ),
+                  ),
+                ),
+                onTap: () {
+                  ctrl.selectedIndex.value = _index;
+                },
+              );
+            });
+          }).toList(),
         ),
       ],
     );
   }
 }
+
+class Listview {}

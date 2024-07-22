@@ -11,14 +11,15 @@ import 'package:kakao_flutter_sdk/kakao_flutter_sdk_user.dart';
 
 void main() async {
   WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
   await SystemChrome.setPreferredOrientations([
     DeviceOrientation.portraitUp,
     DeviceOrientation.portraitDown,
   ]);
   FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
-  await Firebase.initializeApp(
-    options: DefaultFirebaseOptions.currentPlatform,
-  );
+
   KakaoSdk.init(nativeAppKey: '3a7d2ab10030b990c134c3425f4071e2');
   Get.put(MainController());
   FlutterNativeSplash.remove();

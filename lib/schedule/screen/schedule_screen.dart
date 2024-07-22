@@ -16,7 +16,7 @@ class ScheduleScreen extends StatefulWidget {
 class _ScheduleScreenState extends State<ScheduleScreen> {
   @override
   void initState() {
-    // TODO: implement initState
+    super.initState();
     Get.put(ScheduleController());
   }
 
@@ -119,12 +119,11 @@ class _ScheduleScreenState extends State<ScheduleScreen> {
           child: StreamBuilder(
             stream: scheduleStream,
             builder: (context, snapshot) {
-              print('shin >>> ${snapshot.data?.docs.length}');
               if (!snapshot.hasData) {
                 return const Text('no data!');
               }
               if (snapshot.hasError) {
-                return Text('Failed!');
+                return const Text('Failed!');
               }
               return ListView(
                 children: snapshot.data!.docs.map((DocumentSnapshot document) {
@@ -156,7 +155,7 @@ class _ScheduleScreenState extends State<ScheduleScreen> {
   Widget _completedScheduleView() {
     return ListView.builder(
       itemBuilder: (context, index) {
-        return ListItem(
+        return const ListItem(
           introduce: '',
           title: '등산 플로깅 갈 사람',
           imageUrl: 'assets/mount_img.png',

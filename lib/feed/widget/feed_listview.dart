@@ -24,7 +24,6 @@ class _FeedListviewState extends State<FeedListview> {
         stream: feedStream,
         builder: (context, snapshot) {
           ctrl.activeCount = snapshot.data?.docs.length ?? 0;
-          print('shin >>> ${snapshot.data?.docs.length}');
           if (!snapshot.hasData) {
             return const Text('no data!');
           }

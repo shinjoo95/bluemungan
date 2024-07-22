@@ -371,6 +371,9 @@ class _FeedWriteScreenState extends State<FeedWriteScreen> {
                       }
                     },
                   ),
+                  const SizedBox(
+                    height: 50,
+                  ),
                 ],
               ),
             ),

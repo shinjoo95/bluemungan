@@ -12,6 +12,13 @@ class ScheduleController extends GetxController
   String location = '';
   String introduce = '';
   String date = '';
+  RxInt selectedIndex = 0.obs;
+  List<String> activeImages = <String>[
+    'assets/mount_img.png',
+    'assets/city_img.png',
+    'assets/sea_img.png',
+    'assets/upcycle_img.png'
+  ];
 
   final titleController = TextEditingController();
   final locationController = TextEditingController();

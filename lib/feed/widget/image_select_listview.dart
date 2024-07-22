@@ -62,7 +62,6 @@ class _ImageSelectListviewState extends State<ImageSelectListview> {
             itemCount: ctrl.pickedImagesList.length,
             scrollDirection: Axis.horizontal,
             itemBuilder: (context, index) {
-              print('shin >>> ${ctrl.pickedImagesList.length}');
               return SizedBox(
                 width: 80,
                 height: 80,
