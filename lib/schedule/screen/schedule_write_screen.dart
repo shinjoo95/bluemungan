@@ -212,7 +212,7 @@ class _ScheduleWriteScreenState extends State<ScheduleWriteScreen> {
                     children: [
                       Expanded(
                         child: TextField(
-                          controller: _ctrl.introduceController,
+                          controller: _ctrl.subTitleController,
                           cursorColor: Colors.black,
                           cursorHeight: 16,
                           style: const TextStyle(

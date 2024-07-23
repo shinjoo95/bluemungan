@@ -3,21 +3,21 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class ListItem extends StatelessWidget {
-  final String imageUrl;
+  // final String imageUrl;
   final String title;
   final String mainTime;
-  final String introduce;
-  final String subTime;
+  final String subTitle;
+  // final String subTime;
   final String location;
   final int? member;
 
   const ListItem({
     super.key,
-    required this.imageUrl,
+    // required this.imageUrl,
     required this.title,
-    required this.introduce,
+    required this.subTitle,
     required this.mainTime,
-    required this.subTime,
+    // required this.subTime,
     required this.location,
     this.member,
   });
@@ -32,7 +32,7 @@ class ListItem extends StatelessWidget {
             builder: (context) => ScheduleDetailScreen(
               date: '6월 30일',
               title: title,
-              introduce: introduce,
+              introduce: subTitle,
               location: location,
             ),
           ),
@@ -100,7 +100,7 @@ class ListItem extends StatelessWidget {
                   child: ClipRRect(
                     borderRadius: BorderRadius.circular(5),
                     child: Image.asset(
-                      imageUrl,
+                      'assets/mount_img.png',
                       fit: BoxFit.cover,
                     ),
                   ),
@@ -111,34 +111,34 @@ class ListItem extends StatelessWidget {
                   children: [
                     const SizedBox(height: 5),
                     // 일시
-                    RichText(
-                      text: TextSpan(
-                        children: [
-                          const TextSpan(
-                            text: '일시',
-                            style: TextStyle(
-                              color: Colors.grey,
-                              fontSize: 13,
-                              fontFamily: 'semiBold',
-                            ),
-                          ),
-                          const WidgetSpan(
-                            child: SizedBox(
-                              width: 10,
-                            ),
-                          ),
-                          TextSpan(
-                            text: subTime,
-                            style: const TextStyle(
-                              color: Colors.black,
-                              fontSize: 13,
-                              fontFamily: 'semiBold',
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                    const SizedBox(height: 6),
+                    // RichText(
+                    //   text: TextSpan(
+                    //     children: [
+                    //       const TextSpan(
+                    //         text: '일시',
+                    //         style: TextStyle(
+                    //           color: Colors.grey,
+                    //           fontSize: 13,
+                    //           fontFamily: 'semiBold',
+                    //         ),
+                    //       ),
+                    //       const WidgetSpan(
+                    //         child: SizedBox(
+                    //           width: 10,
+                    //         ),
+                    //       ),
+                    //       TextSpan(
+                    //         text: subTime,
+                    //         style: const TextStyle(
+                    //           color: Colors.black,
+                    //           fontSize: 13,
+                    //           fontFamily: 'semiBold',
+                    //         ),
+                    //       ),
+                    //     ],
+                    //   ),
+                    // ),
+                    // const SizedBox(height: 6),
                     // 위치
                     RichText(
                       text: TextSpan(

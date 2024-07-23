@@ -1,7 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_state_manager/get_state_manager.dart';
 
 class ScheduleController extends GetxController
     with GetSingleTickerProviderStateMixin {
@@ -10,7 +9,7 @@ class ScheduleController extends GetxController
   List activeImagePath = [];
   String title = '';
   String location = '';
-  String introduce = '';
+  String subTitle = '';
   String date = '';
   RxInt selectedIndex = 0.obs;
   List<String> activeImages = <String>[
@@ -22,7 +21,7 @@ class ScheduleController extends GetxController
 
   final titleController = TextEditingController();
   final locationController = TextEditingController();
-  final introduceController = TextEditingController();
+  final subTitleController = TextEditingController();
 
   @override
   void onInit() {
@@ -45,11 +44,13 @@ class ScheduleController extends GetxController
           'title': titleController.text,
           'location': locationController.text,
           'date': date,
-          'introduce': introduceController.text,
+          'subTitle': subTitleController.text,
         })
         .then(
-          (value) => print("document added"),
+          (value) => print('shin >>>>> insert 1111'),
         ) //잘 들어갔니?
-        .catchError((error) => print("Fail to add doc ${error}")); //에러가 있니?
+        .catchError(
+          (error) => print('shin >>>>> error222222'),
+        ); //에러가 있니?
   }
 }

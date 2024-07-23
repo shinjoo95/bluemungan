@@ -1,4 +1,5 @@
 import 'package:bluemungan/schedule/controller/schedule_controller.dart';
+import 'package:bluemungan/schedule/model/schedule_model.dart';
 import 'package:bluemungan/schedule/screen/schedule_write_screen.dart';
 import 'package:bluemungan/schedule/widget/list_item.dart';
 import 'package:bluemungan/schedule/widget/plogging_banner.dart';
@@ -18,6 +19,9 @@ class _ScheduleScreenState extends State<ScheduleScreen> {
   void initState() {
     super.initState();
     Get.put(ScheduleController());
+    FirebaseFirestore.instance.collection("schedule").withConverter(
+        fromFirestore: (snapshot, _) => Schedule.fromJson(snapshot.data()!),
+        toFirestore: (schedule, _) => schedule.toJson());
   }
 
   @override
@@ -27,6 +31,12 @@ class _ScheduleScreenState extends State<ScheduleScreen> {
     }
     super.dispose();
   }
+
+  final scheduleRef = FirebaseFirestore.instance
+      .collection("schedule")
+      .withConverter(
+          fromFirestore: (snapshot, _) => Schedule.fromJson(snapshot.data()!),
+          toFirestore: (schedule, _) => schedule.toJson());
 
   @override
   Widget build(BuildContext context) {
@@ -111,38 +121,44 @@ class _ScheduleScreenState extends State<ScheduleScreen> {
   Widget _planScheduleView({
     required ScheduleController ctrl,
   }) {
-    final Stream<QuerySnapshot> scheduleStream =
-        FirebaseFirestore.instance.collection('schedule').snapshots();
     return Column(
       children: [
         Expanded(
           child: StreamBuilder(
-            stream: scheduleStream,
+            stream: scheduleRef.orderBy('schedule').snapshots(),
             builder: (context, snapshot) {
-              if (!snapshot.hasData) {
-                return const Text('no data!');
-              }
-              if (snapshot.hasError) {
-                return const Text('Failed!');
-              }
-              return ListView(
-                children: snapshot.data!.docs.map((DocumentSnapshot document) {
-                  Map<String, dynamic> data =
-                      document.data() as Map<String, dynamic>;
-                  if (data.isEmpty) {
+              print('shin >>>>> snapshot');
+              if (snapshot.hasData) {
+                return ListView(
+                  children: snapshot.data!.docs.map((document) {
+                    print('shin >>>> listview');
+                    print('shin >>>>>> ${document.data().title}');
+                    if (snapshot.hasData) {
+                      return ListItem(
+                        title: document.data().title ?? '',
+                        // imageUrl: '',
+                        subTitle: document.data().subTitle ?? '',
+                        location: document.data().location ?? '',
+                        mainTime: '',
+                        // subTime: '',
+                      );
+                    }
                     return const Center(
-                      child: CircularProgressIndicator(),
+                      child: CircularProgressIndicator(
+                        strokeWidth: 2,
+                      ),
                     );
-                  }
-                  return ListItem(
-                    title: data['title'] ?? '',
-                    imageUrl: '',
-                    introduce: data['introduce'],
-                    location: data['location'] ?? '',
-                    mainTime: '',
-                    subTime: '',
-                  );
-                }).toList(),
+                  }).toList(),
+                );
+              } else if (snapshot.hasError) {
+                return const Center(
+                  child: Text('error'),
+                );
+              } else if (!snapshot.hasError) {
+                print('shin >>>> hasNoData');
+              }
+              return const CircularProgressIndicator(
+                strokeWidth: 2,
               );
             },
           ),
@@ -156,11 +172,11 @@ class _ScheduleScreenState extends State<ScheduleScreen> {
     return ListView.builder(
       itemBuilder: (context, index) {
         return const ListItem(
-          introduce: '',
+          subTitle: '',
           title: '등산 플로깅 갈 사람',
-          imageUrl: 'assets/mount_img.png',
+          // imageUrl: 'assets/mount_img.png',
           mainTime: '4/22 토',
-          subTime: '4월 22일 토요일 13시',
+          // subTime: '4월 22일 토요일 13시',
           location: '북한산',
         );
       },
