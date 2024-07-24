@@ -18,7 +18,7 @@ class ScheduleController extends GetxController
     'assets/sea_img.png',
     'assets/upcycle_img.png'
   ];
-
+  final _firestore = FirebaseFirestore.instance;
   final titleController = TextEditingController();
   final locationController = TextEditingController();
   final subTitleController = TextEditingController();
@@ -26,31 +26,38 @@ class ScheduleController extends GetxController
   @override
   void onInit() {
     tabCtrl = TabController(length: 2, vsync: this);
+    getdata();
     super.onInit();
   }
 
-  @override
-  void dispose() {
-    super.dispose();
+  // @override
+  // void dispose() {
+  //   super.dispose();
+  // }
 
-    print('shin >>>>> main_controller dispose');
-  }
-
-  void scheduleWrite() {
-    FirebaseFirestore.instance
+  getdata() async {
+    var result = await _firestore
         .collection('schedule')
-        .doc()
-        .set({
-          'title': titleController.text,
-          'location': locationController.text,
-          'date': date,
-          'subTitle': subTitleController.text,
-        })
-        .then(
-          (value) => print('shin >>>>> insert 1111'),
-        ) //잘 들어갔니?
-        .catchError(
-          (error) => print('shin >>>>> error222222'),
-        ); //에러가 있니?
+        .doc('p5Eydmsh2cqvjbnyQpru')
+        .get();
+    print(result);
   }
+
+  // void scheduleWrite() {
+  //   FirebaseFirestore.instance
+  //       .collection('schedule')
+  //       .doc()
+  //       .set({
+  //         'title': titleController.text,
+  //         'location': locationController.text,
+  //         'date': date,
+  //         'subTitle': subTitleController.text,
+  //       })
+  //       .then(
+  //         (value) => print('shin >>>>> insert 1111'),
+  //       ) //잘 들어갔니?
+  //       .catchError(
+  //         (error) => print('shin >>>>> error222222'),
+  //       ); //에러가 있니?
+  // }
 }

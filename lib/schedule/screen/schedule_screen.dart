@@ -19,9 +19,6 @@ class _ScheduleScreenState extends State<ScheduleScreen> {
   void initState() {
     super.initState();
     Get.put(ScheduleController());
-    FirebaseFirestore.instance.collection("schedule").withConverter(
-        fromFirestore: (snapshot, _) => Schedule.fromJson(snapshot.data()!),
-        toFirestore: (schedule, _) => schedule.toJson());
   }
 
   @override
@@ -33,7 +30,7 @@ class _ScheduleScreenState extends State<ScheduleScreen> {
   }
 
   final scheduleRef = FirebaseFirestore.instance
-      .collection("schedule")
+      .collection('schedule')
       .withConverter(
           fromFirestore: (snapshot, _) => Schedule.fromJson(snapshot.data()!),
           toFirestore: (schedule, _) => schedule.toJson());
@@ -121,44 +118,47 @@ class _ScheduleScreenState extends State<ScheduleScreen> {
   Widget _planScheduleView({
     required ScheduleController ctrl,
   }) {
+    final scheduleRef = FirebaseFirestore.instance
+        .collection("schedule")
+        .withConverter(
+            fromFirestore: (snapshot, _) => Schedule.fromJson(snapshot.data()!),
+            toFirestore: (schedule, _) => schedule.toJson());
     return Column(
       children: [
         Expanded(
           child: StreamBuilder(
             stream: scheduleRef.orderBy('schedule').snapshots(),
             builder: (context, snapshot) {
-              print('shin >>>>> snapshot');
+              // print('shin >>> snapshot : ${snapshot.data!.docs.length ?? 0}');
+
               if (snapshot.hasData) {
+                print('shin >>>> hasData');
+                print('shin >>> snapshot : ${snapshot.data!.docs.length}');
+
                 return ListView(
                   children: snapshot.data!.docs.map((document) {
-                    print('shin >>>> listview');
-                    print('shin >>>>>> ${document.data().title}');
-                    if (snapshot.hasData) {
-                      return ListItem(
-                        title: document.data().title ?? '',
-                        // imageUrl: '',
-                        subTitle: document.data().subTitle ?? '',
-                        location: document.data().location ?? '',
-                        mainTime: '',
-                        // subTime: '',
-                      );
-                    }
-                    return const Center(
-                      child: CircularProgressIndicator(
-                        strokeWidth: 2,
-                      ),
+                    print('shin >>>> title : ${document.data().title}');
+                    return ListItem(
+                      title: document.data().title ?? '',
+                      // imageUrl: '',
+                      subTitle: document.data().subTitle ?? '',
+                      location: document.data().location ?? '',
+                      mainTime: '',
+                      // subTime: '',
                     );
                   }).toList(),
                 );
+              } else if (!snapshot.hasData) {
+                return Container();
               } else if (snapshot.hasError) {
                 return const Center(
                   child: Text('error'),
                 );
-              } else if (!snapshot.hasError) {
-                print('shin >>>> hasNoData');
               }
-              return const CircularProgressIndicator(
-                strokeWidth: 2,
+              return const Center(
+                child: CircularProgressIndicator(
+                    // strokeWidth: 2,
+                    ),
               );
             },
           ),

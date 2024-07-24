@@ -273,7 +273,7 @@ class _ScheduleWriteScreenState extends State<ScheduleWriteScreen> {
                   ),
                   onTap: () async {
                     /// TODO 개설 기능 추가
-                    _ctrl.scheduleWrite();
+                    // _ctrl.scheduleWrite();
                     Navigator.pop(context);
                   },
                 ),
@@ -327,5 +327,3 @@ class _ScheduleWriteScreenState extends State<ScheduleWriteScreen> {
     );
   }
 }
-
-class Listview {}
