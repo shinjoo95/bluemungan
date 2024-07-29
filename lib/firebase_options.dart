@@ -54,6 +54,7 @@ class DefaultFirebaseOptions {
     appId: '1:454016135198:android:60837d0a983b685042be0f',
     messagingSenderId: '454016135198',
     projectId: 'bluemungan',
+    databaseURL: 'https://bluemungan-default-rtdb.asia-southeast1.firebasedatabase.app',
     storageBucket: 'bluemungan.appspot.com',
   );
 
@@ -62,7 +63,11 @@ class DefaultFirebaseOptions {
     appId: '1:454016135198:ios:8772fe1af92e38af42be0f',
     messagingSenderId: '454016135198',
     projectId: 'bluemungan',
+    databaseURL: 'https://bluemungan-default-rtdb.asia-southeast1.firebasedatabase.app',
     storageBucket: 'bluemungan.appspot.com',
+    androidClientId: '454016135198-4oh3rojlqe2913tlkd9vhmut99n709pd.apps.googleusercontent.com',
+    iosClientId: '454016135198-d88sj8vf32m3lpeocuvc2h7djv06peu3.apps.googleusercontent.com',
     iosBundleId: 'com.shinjoo.bluemungan',
   );
+
 }

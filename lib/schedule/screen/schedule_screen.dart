@@ -129,8 +129,6 @@ class _ScheduleScreenState extends State<ScheduleScreen> {
           child: StreamBuilder(
             stream: scheduleRef.orderBy('schedule').snapshots(),
             builder: (context, snapshot) {
-              // print('shin >>> snapshot : ${snapshot.data!.docs.length ?? 0}');
-
               if (snapshot.hasData) {
                 print('shin >>>> hasData');
                 print('shin >>> snapshot : ${snapshot.data!.docs.length}');
