@@ -19,6 +19,9 @@ class _ScheduleScreenState extends State<ScheduleScreen> {
   void initState() {
     super.initState();
     Get.put(ScheduleController());
+    FirebaseFirestore.instance.collection('schedule').withConverter(
+        fromFirestore: (snapshot, _) => Schedule.fromJson(snapshot.data()!),
+        toFirestore: (schedule, _) => schedule.toJson());
   }
 
   @override
@@ -28,12 +31,6 @@ class _ScheduleScreenState extends State<ScheduleScreen> {
     }
     super.dispose();
   }
-
-  final scheduleRef = FirebaseFirestore.instance
-      .collection('schedule')
-      .withConverter(
-          fromFirestore: (snapshot, _) => Schedule.fromJson(snapshot.data()!),
-          toFirestore: (schedule, _) => schedule.toJson());
 
   @override
   Widget build(BuildContext context) {

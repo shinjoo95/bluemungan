@@ -1,6 +1,7 @@
-import 'package:bluemungan/my/screen/login_screen.dart';
+import 'package:bluemungan/common/widgets/boundary.dart';
 import 'package:bluemungan/my/widget/setting_menu.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class SettingScreen extends StatelessWidget {
   const SettingScreen({super.key});
@@ -19,18 +20,6 @@ class SettingScreen extends StatelessWidget {
         ),
         const SizedBox(height: 15),
         SettingMenu(
-          icon: 'assets/profile_setting_icon.png',
-          title: '계정 설정',
-          onTap: () {
-            Navigator.push(
-              context,
-              MaterialPageRoute(
-                builder: (context) => const LoginScreen(),
-              ),
-            );
-          },
-        ),
-        SettingMenu(
           icon: 'assets/notice_icon.png',
           title: '공지 사항',
           onTap: () {},
@@ -46,10 +35,93 @@ class SettingScreen extends StatelessWidget {
           onTap: () {},
         ),
         SettingMenu(
-          icon: 'assets/info_icon.png',
-          title: '앱 제작 정보',
-          onTap: () {},
-          isLast: true,
+          icon: 'assets/logout.png',
+          title: '계정 로그 아웃',
+          onTap: () {
+            Get.dialog(
+              Material(
+                color: Colors.black.withOpacity(0.05),
+                child: Center(
+                  child: Container(
+                    padding: const EdgeInsets.all(16),
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(6),
+                    ),
+                    constraints: BoxConstraints(maxHeight: Get.height - 100),
+                    width: 310,
+                    child: Column(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        const Text(
+                          '알림',
+                          style: TextStyle(
+                            fontSize: 17,
+                            color: Colors.red,
+                            fontFamily: 'bold',
+                          ),
+                        ),
+                        const SizedBox(height: 20),
+                        const Text(
+                          '로그아웃 하시겠습니까',
+                          style: TextStyle(
+                            fontSize: 15,
+                            fontFamily: 'semiBold',
+                          ),
+                        ),
+                        const SizedBox(height: 20),
+                        const Boundary(),
+                        Row(
+                          children: [
+                            Expanded(
+                              child: GestureDetector(
+                                child: Container(
+                                  alignment: Alignment.center,
+                                  child: const Text(
+                                    '확인',
+                                    style: TextStyle(
+                                      fontSize: 15,
+                                      fontFamily: 'semiBold',
+                                    ),
+                                  ),
+                                ),
+                                onTap: () {
+                                  /// TODO logout
+                                },
+                              ),
+                            ),
+                            Container(
+                              alignment: Alignment.center,
+                              height: 30,
+                              width: 1,
+                              color: Colors.grey[300],
+                            ),
+                            Expanded(
+                              child: GestureDetector(
+                                child: Container(
+                                  alignment: Alignment.center,
+                                  child: const Text(
+                                    '취소',
+                                    style: TextStyle(
+                                      fontSize: 15,
+                                      fontFamily: 'semiBold',
+                                    ),
+                                  ),
+                                ),
+                                onTap: () {
+                                  Get.back();
+                                },
+                              ),
+                            )
+                          ],
+                        )
+                      ],
+                    ),
+                  ),
+                ),
+              ),
+            );
+          },
         ),
       ],
     );

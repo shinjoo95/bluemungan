@@ -24,7 +24,7 @@ class SettingMenu extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        InkWell(
+        GestureDetector(
           onTap: onTap,
           child: SizedBox(
             width: Get.width,

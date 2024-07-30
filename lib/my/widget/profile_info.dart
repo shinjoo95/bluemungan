@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 // import 'package:flutter_naver_login/flutter_naver_login.dart';
 
 class ProfileInfo extends StatelessWidget {
@@ -8,6 +9,7 @@ class ProfileInfo extends StatelessWidget {
   Widget build(BuildContext context) {
     return SizedBox(
       height: 70,
+      width: Get.width,
       child: Row(
         children: [
           Stack(
@@ -31,6 +33,7 @@ class ProfileInfo extends StatelessWidget {
             children: [
               SizedBox(height: 3),
               Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   Text(
                     '권하연',
