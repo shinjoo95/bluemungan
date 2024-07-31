@@ -36,7 +36,7 @@ class SettingScreen extends StatelessWidget {
         ),
         SettingMenu(
           icon: 'assets/logout.png',
-          title: '계정 로그 아웃',
+          title: '로그 아웃',
           onTap: () {
             Get.dialog(
               Material(

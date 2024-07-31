@@ -1,4 +1,3 @@
-import 'package:bluemungan/main/screen/main_screen.dart';
 import 'package:bluemungan/my/controller/login_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
